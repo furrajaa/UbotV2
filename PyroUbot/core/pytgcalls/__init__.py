@@ -1,1 +1,1 @@
-from PyroUbot.core.pytgcalls.queues import *
+from PyroUbot.core.pytgcalls import *
