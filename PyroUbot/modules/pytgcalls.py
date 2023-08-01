@@ -25,5 +25,4 @@ async def stream_end(client, update: Update):
                 pass
         else:
             await client.change_stream(
-                update.chat_id, queues.get(update.chat_id)["file"]
-  
+                update.chat_id, queues.get(update.chat_id)["file"])
