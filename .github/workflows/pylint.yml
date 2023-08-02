@@ -5,7 +5,7 @@ on:
       - main
 
 jobs:
-  auto_fix:
+  python-auto:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
