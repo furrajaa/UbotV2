@@ -19,6 +19,7 @@ pytz
 pymediainfo
 pymongo
 pyrogram
+python-dateutil
 removebg
 requests
 telegraph
