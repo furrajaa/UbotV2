@@ -17,8 +17,10 @@ jobs:
           black --exclude=venv .
           isort --skip-glob='**/venv/**' .
           autoflake --in-place --recursive --remove-all-unused-imports --remove-unused-variables --ignore-init-module-imports .
-      - name: Code Analysis
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "`Automatic Correction`"
-          commit_options: "--no-verify"
+      - name: Code Reformate
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "`Automatic Correction`"
+          git push
