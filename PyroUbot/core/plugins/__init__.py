@@ -20,7 +20,6 @@ from PyroUbot.core.plugins.lgo import *
 from PyroUbot.core.plugins.lmt import *
 from PyroUbot.core.plugins.mmf import *
 from PyroUbot.core.plugins.mms import *
-from PyroUbot.core.plugins.msc import *
 from PyroUbot.core.plugins.nts import *
 from PyroUbot.core.plugins.ocr import *
 from PyroUbot.core.plugins.opi import *
