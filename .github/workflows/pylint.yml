@@ -6,6 +6,9 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+        with:
+          repository: .
+          ref: ${{ github.ref }}
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
@@ -21,7 +24,10 @@ jobs:
           isort --skip-glob='**/venv/**' .
           autoflake --in-place --recursive --remove-all-unused-imports --remove-unused-variables --ignore-init-module-imports .
       - name: Code Analysis
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v4.2.2
         with:
           commit_message: "Auto Fix"
           commit_options: "--no-verify"
+          repository: .
+          commit_user_name: "GitHub Actions"
+          commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
