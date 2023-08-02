@@ -1,6 +1,5 @@
 from asyncio import run
 
-
 from pyrogram import Client as c
 
 API_ID = input("\nEnter Your API_ID:\n > ")
