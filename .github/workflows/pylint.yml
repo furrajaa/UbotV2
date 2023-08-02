@@ -5,7 +5,7 @@ on:
       - main
 
 jobs:
-  python-auto:
+  python-auto-fix:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
@@ -13,8 +13,6 @@ jobs:
 
     - name: Set up Python
       uses: actions/setup-python@v2
-      with:
-        python-version: 3.x
 
     - name: Install dependencies
       run: |
@@ -29,8 +27,8 @@ jobs:
 
     - name: Commit changes
       run: |
-        git config user.name "SpaceX50"
-        git config user.email "140992454+SpaceX50@users.noreply.github.com"
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git add .
         git commit -m "syntex"
         git push
