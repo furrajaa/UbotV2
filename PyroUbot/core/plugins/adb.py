@@ -10,9 +10,6 @@ from pytz import timezone
 
 from PyroUbot import *
 
-"""
-"""
-
 
 async def need_api(client, callback_query):
     user_id = callback_query.from_user.id
@@ -21,7 +18,6 @@ async def need_api(client, callback_query):
             user_id,
             "<b>ᴀɴᴅᴀ sᴜᴅᴀʜ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ\n\nJɪᴋᴀ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴅɪɢᴜɴᴀᴋᴀɴ sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ: /restart</b>",
         )
-   """
    elif user_id not in await get_prem():
         buttons = [
             [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="bayar_dulu")],
@@ -34,7 +30,6 @@ async def need_api(client, callback_query):
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
-    """
     elif len(ubot._ubot) + 1 > MAX_BOT:
         buttons = [
             [InlineKeyboardButton("🗑️ ᴛᴜᴛᴜᴘ 🗑️", callback_data="0_cls")],
@@ -47,7 +42,7 @@ async def need_api(client, callback_query):
 
 <b>📚 ᴋᴀʀᴇɴᴀ ᴍᴀᴋsɪᴍᴀʟ ᴜsᴇʀʙᴏᴛ ᴀᴅᴀʟᴀʜ {Fonts.smallcap(str(len(ubot._ubot)))} ᴛᴇʟᴀʜ ᴛᴇʀᴄᴀᴘᴀɪ</b>
 
-<b>☎️ sɪʟᴀʜᴋᴀɴ ʜᴜʙᴜɴɢɪ: <a href=t.me/T0M1_X>ᴀᴅᴍɪɴ</a> ᴊɪᴋᴀ ᴍᴀᴜ ᴅɪʙᴜᴀᴛᴋᴀɴ ʙᴏᴛ sᴇᴘᴇʀᴛɪ sᴀʏᴀ</b>
+<b>☎️ sɪʟᴀʜᴋᴀɴ ʜᴜʙᴜɴɢɪ: <a href=tg://openmessage?user_id={OWNER_ID}>ᴀᴅᴍɪɴ</a> ᴊɪᴋᴀ ᴍᴀᴜ ᴅɪʙᴜᴀᴛᴋᴀɴ ʙᴏᴛ sᴇᴘᴇʀᴛɪ sᴀʏᴀ</b>
 """,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
