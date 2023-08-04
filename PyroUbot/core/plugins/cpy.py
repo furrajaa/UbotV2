@@ -195,7 +195,7 @@ async def copy_ubot_msg(client, message):
                         x.results[0].id,
                         reply_to_message_id=msg.id,
                     )
-                    COPY_ID[client.me.id] = int(results.updates[0].id)
+                    COPY_ID[client.me.id] = results
                     await infomsg.delete()
                 except Exception as error:
                     await infomsg.edit(f"{str(error)}")
@@ -252,7 +252,7 @@ async def copy_callback_msg(client, callback_query):
                 await m._client.copy_message(
                     m.chat.id, bot.me.username, get.id, reply_to_message_id=msg.id
                 )
-                await m._client.delete_messages(m.chat.id, COPY_ID[m._client.me.id])
+                await COPY_ID[m._client.me.id].delete()
                 await get.delete()
     except Exception as error:
         await callback_query.edit_message_text(f"<code>{error}</code>")
