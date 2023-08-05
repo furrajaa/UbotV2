@@ -78,10 +78,10 @@ class Ubot(Client):
                 offset_id=0,
                 offset_peer=raw.types.InputPeerEmpty(),
                 limit=100,
-                hash=0
-                ),
-                sleep_threshold=60
-            )
+                hash=0,
+            ),
+            sleep_threshold=60,
+        )
         users = {i.id: i for i in r.users}
         chats = {i.id: i for i in r.chats}
         return [users, chats]
