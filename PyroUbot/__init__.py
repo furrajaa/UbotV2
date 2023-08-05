@@ -4,7 +4,7 @@ import re
 
 from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
-from pyrogram.handlers import MessageHandler
+from pyrogram.handlers import MessageHandler, CallbackQueryHandler
 from pyrogram.types import Message
 from pyromod import listen
 
@@ -38,6 +38,13 @@ class Bot(Client):
     def on_message(self, filters=None, group=-1):
         def decorator(func):
             self.add_handler(MessageHandler(func, filters), group)
+            return func
+
+        return decorator
+
+    def on_callback_query(self, filters=None, group=-1):
+        def decorator(func):
+            self.add_handler(CallbackQueryHandler(func, filters), group)
             return func
 
         return decorator
