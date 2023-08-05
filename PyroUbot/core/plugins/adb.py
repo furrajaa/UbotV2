@@ -10,14 +10,7 @@ from pytz import timezone
 
 from PyroUbot import *
 
-
-async def need_api(client, callback_query):
-    user_id = callback_query.from_user.id
-    if user_id in ubot._get_my_id:
-        return await bot.send_message(
-            user_id,
-            "<b>ᴀɴᴅᴀ sᴜᴅᴀʜ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ\n\nJɪᴋᴀ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴅɪɢᴜɴᴀᴋᴀɴ sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ: /restart</b>",
-        )
+"""
     elif user_id not in await get_prem():
         buttons = [
             [InlineKeyboardButton("➡️ ʟᴀɴᴊᴜᴛᴋᴀɴ", callback_data="bayar_dulu")],
@@ -29,6 +22,15 @@ async def need_api(client, callback_query):
             MSG.POLICY(),
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(buttons),
+        )
+"""
+
+async def need_api(client, callback_query):
+    user_id = callback_query.from_user.id
+    if user_id in ubot._get_my_id:
+        return await bot.send_message(
+            user_id,
+            "<b>ᴀɴᴅᴀ sᴜᴅᴀʜ ᴍᴇᴍʙᴜᴀᴛ ᴜsᴇʀʙᴏᴛ\n\nJɪᴋᴀ ᴜsᴇʀʙᴏᴛ ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ᴅɪɢᴜɴᴀᴋᴀɴ sɪʟᴀʜᴋᴀɴ ᴋʟɪᴋ: /restart</b>",
         )
     elif len(ubot._ubot) + 1 > MAX_BOT:
         buttons = [
