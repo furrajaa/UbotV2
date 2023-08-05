@@ -2,7 +2,6 @@ import random
 
 from pyrogram.enums import MessagesFilter
 
-from PyroUbot import *
 
 
 async def video_asupan(client, message):
