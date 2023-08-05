@@ -148,4 +148,3 @@ from PyroUbot.core.database import *
 from PyroUbot.core.function import *
 from PyroUbot.core.helpers import *
 from PyroUbot.core.plugins import *
-from PyroUbot.core.pytgcalls import *
