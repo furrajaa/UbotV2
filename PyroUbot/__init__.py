@@ -2,7 +2,7 @@ import logging
 import os
 import re
 
-from pyrogram import Client, filters, raw
+from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
 from pyrogram.handlers import CallbackQueryHandler, MessageHandler
 from pyrogram.types import Message
@@ -70,21 +70,6 @@ class Ubot(Client):
             return func
 
         return decorator
-
-    async def dialog(self, client):
-        r = await client.invoke(
-            raw.functions.messages.GetDialogs(
-                offset_date=0,
-                offset_id=0,
-                offset_peer=raw.types.InputPeerEmpty(),
-                limit=100,
-                hash=0,
-            ),
-            sleep_threshold=60,
-        )
-        users = {i.id: i for i in r.users}
-        chats = {i.id: i for i in r.chats}
-        return [users, chats]
 
     def set_prefix(self, user_id, prefix):
         self._prefix[user_id] = prefix
