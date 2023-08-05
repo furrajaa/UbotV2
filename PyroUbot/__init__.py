@@ -4,7 +4,7 @@ import re
 
 from pyrogram import Client, filters
 from pyrogram.enums import ParseMode
-from pyrogram.handlers import MessageHandler, CallbackQueryHandler
+from pyrogram.handlers import CallbackQueryHandler, MessageHandler
 from pyrogram.types import Message
 from pyromod import listen
 

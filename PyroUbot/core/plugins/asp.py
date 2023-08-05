@@ -3,7 +3,6 @@ import random
 from pyrogram.enums import MessagesFilter
 
 
-
 async def video_asupan(client, message):
     y = await message.reply_text("<b>🔍 ᴍᴇɴᴄᴀʀɪ ᴠɪᴅᴇᴏ ᴀsᴜᴘᴀɴ...</b>")
     try:
