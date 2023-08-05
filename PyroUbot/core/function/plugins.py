@@ -37,8 +37,7 @@ async def loadPlugins():
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🛠️ ɢɪᴛᴘᴜʟʟ", callback_data="gitpull"),
-                    InlineKeyboardButton("ʀᴇsᴛᴀʀᴛ 🔁", callback_data="restart"),
+                    InlineKeyboardButton("🤖 ʟɪsᴛ ᴜsᴇʀʙᴏᴛ 🤖", callback_data="cek_ubot")
                 ],
             ]
         ),
