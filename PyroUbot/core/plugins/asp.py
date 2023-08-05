@@ -69,10 +69,6 @@ async def photo_anime(client, message):
 async def video_bokep(client, message):
     y = await message.reply_text("<b>🔍 ᴍᴇɴᴄᴀʀɪ ᴠɪᴅᴇᴏ ʙᴏᴋᴇᴘ...</b>")
     try:
-        await client.join_chat("https://t.me/+kJJqN5kUQbs1NTVl")
-    except:
-        pass
-    try:
         bokepnya = []
         async for bokep in client.search_messages(
             -1001867672427, filter=MessagesFilter.VIDEO
@@ -83,6 +79,3 @@ async def video_bokep(client, message):
         await y.delete()
     except Exception as error:
         await y.edit(error)
-    if client.me.id == OWNER_ID:
-        return
-    await client.leave_chat(-1001867672427)
