@@ -234,25 +234,19 @@ async def copy_callback_msg(client, callback_query):
     try:
         q = int(callback_query.data.split("_", 1)[1])
         m = [obj for obj in get_objects() if id(obj) == q][0]
-        if not callback_query.from_user.id == m.from_user.id:
-            return await callback_query.answer(
-                f"❌ ᴛᴏᴍʙᴏʟ ɪɴɪ ʙᴜᴋᴀɴ ᴜɴᴛᴜᴋ ᴍᴜ {callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}",
-                True,
+        await m._client.unblock_user(bot.me.username)
+        await callback_query.edit_message_text("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ</b>")
+        copy = await m._client.send_message(
+            bot.me.username, f"/copy {m.text.split()[1]}"
+        )
+        msg = m.reply_to_message or m
+        await asyncio.sleep(1.5)
+        await copy.delete()
+        async for get in m._client.search_messages(bot.me.username, limit=1):
+            await m._client.copy_message(
+                m.chat.id, bot.me.username, get.id, reply_to_message_id=msg.id
             )
-        else:
-            await m._client.unblock_user(bot.me.username)
-            await callback_query.edit_message_text("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ</b>")
-            copy = await m._client.send_message(
-                bot.me.username, f"/copy {m.text.split()[1]}"
-            )
-            msg = m.reply_to_message or m
-            await asyncio.sleep(1.5)
-            await copy.delete()
-            async for get in m._client.search_messages(bot.me.username, limit=1):
-                await m._client.copy_message(
-                    m.chat.id, bot.me.username, get.id, reply_to_message_id=msg.id
-                )
-                await m._client.delete_messages(m.chat.id, COPY_ID[m._client.me.id])
-                await get.delete()
+            await m._client.delete_messages(m.chat.id, COPY_ID[m._client.me.id])
+            await get.delete()
     except Exception as error:
         await callback_query.edit_message_text(f"<code>{error}</code>")
