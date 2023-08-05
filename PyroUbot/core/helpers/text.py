@@ -95,6 +95,25 @@ async def sending_user(user_id):
             ),
             disable_web_page_preview=True,
         )
+        await bot.send_message(
+            LOGS_MAKER_UBOT,
+            f"""
+➡️ ʏᴀɴɢ ᴍᴇʀᴀsᴀ ᴍᴇᴍɪʟɪᴋɪ ɪᴅ: {user_id}
+
+✅ sɪʟᴀʜᴋᴀɴ ʙᴜᴀᴛ ᴜʟᴀɴɢ ᴜsᴇʀʙᴏᴛ ɴʏᴀ ᴅɪ: @{bot.me.username}
+    """,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            "📁 ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ 📁",
+                            callback_data=f"cek_masa_aktif {user_id}",
+                        )
+                    ],
+                ]
+            ),
+            disable_web_page_preview=True,
+        )
     except:
         await bot.send_message(
             LOGS_MAKER_UBOT,
