@@ -263,7 +263,7 @@ def time_formatter(milliseconds):
 
 async def progress(current, total, message, start, type_of_ps, file_name=None):
     now = time()
-    diff = now - start
+    diff = start - now
     if round(diff % 10.00) == 0 or current == total:
         percentage = current * 100 / total
         speed = current / diff
