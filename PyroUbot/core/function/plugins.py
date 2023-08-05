@@ -36,9 +36,7 @@ async def loadPlugins():
 """,
         reply_markup=InlineKeyboardMarkup(
             [
-                [
-                    InlineKeyboardButton("🤖 ʟɪsᴛ ᴜsᴇʀʙᴏᴛ 🤖", callback_data="cek_ubot")
-                ],
+                [InlineKeyboardButton("🤖 ʟɪsᴛ ᴜsᴇʀʙᴏᴛ 🤖", callback_data="cek_ubot")],
             ]
         ),
     )
