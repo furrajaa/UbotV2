@@ -12,6 +12,7 @@ from PyroUbot.config import *
 
 TEST = {}
 
+
 class ConnectionHandler(logging.Handler):
     def emit(self, record):
         for X in ["OSErro", "TimeoutError"]:
