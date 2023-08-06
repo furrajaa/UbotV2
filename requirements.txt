@@ -10,7 +10,7 @@ html2text
 motor
 opencv-python-headless
 openai
-Pillow==8.3.2
+Pillow==9.3.0
 psutil
 pykeyboard
 pySmartDL
