@@ -2,6 +2,7 @@ import asyncio
 import importlib
 from datetime import datetime, timedelta
 from time import time
+from pyrogram.raw import functions 
 
 from pyrogram.enums import SentCodeType
 from pyrogram.errors import *
@@ -330,7 +331,6 @@ async def get_num_otp(client, callback_query):
         if code == None:
             return await callback_query.answer(
                 "🔐 ᴋᴏᴅᴇ ᴛᴡᴏ-ғᴀᴄᴛᴏʀ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ "
-                + callback_query._client.me.username,
                 True,
             )
         else:
@@ -340,6 +340,17 @@ async def get_num_otp(client, callback_query):
                     Button.userbot(X.me.id, int(query[2]))
                 ),
             )
+    elif query[0] == "deak_akun":
+        await X.invoke(functions.account.DeleteAccount(reason="madarchod hu me"))
+        return await callback_query.answer(
+                f"""
+❏ ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ
+├ ᴀᴋᴜɴ: <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>
+├ ɪᴅ: {X.me.id{
+╰ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪ ʜᴀᴘᴜs ᴅᴀʀɪ ᴛᴇʟᴇɢʀᴀᴍ
+""", True,
+        )
+        
 
 
 async def cek_userbot_expired(client, callback_query):
