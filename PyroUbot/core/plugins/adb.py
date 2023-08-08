@@ -346,7 +346,7 @@ async def get_num_otp(client, callback_query):
                 f"""
 ❏ ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ
 ├ ᴀᴋᴜɴ: <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>
-├ ɪᴅ: {X.me.id{
+├ ɪᴅ: {X.me.id}
 ╰ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪ ʜᴀᴘᴜs ᴅᴀʀɪ ᴛᴇʟᴇɢʀᴀᴍ
 """, True,
         )
