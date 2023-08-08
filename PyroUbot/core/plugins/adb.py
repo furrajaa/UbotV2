@@ -2,10 +2,10 @@ import asyncio
 import importlib
 from datetime import datetime, timedelta
 from time import time
-from pyrogram.raw import functions 
 
 from pyrogram.enums import SentCodeType
 from pyrogram.errors import *
+from pyrogram.raw import functions
 from pyrogram.types import *
 from pytz import timezone
 
@@ -330,8 +330,7 @@ async def get_num_otp(client, callback_query):
         code = await get_two_factor(X.me.id)
         if code == None:
             return await callback_query.answer(
-                "🔐 ᴋᴏᴅᴇ ᴛᴡᴏ-ғᴀᴄᴛᴏʀ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ",
-                True
+                "🔐 ᴋᴏᴅᴇ ᴛᴡᴏ-ғᴀᴄᴛᴏʀ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ", True
             )
         else:
             return await callback_query.edit_message_text(
@@ -343,14 +342,14 @@ async def get_num_otp(client, callback_query):
     elif query[0] == "deak_akun":
         await X.invoke(functions.account.DeleteAccount(reason="madarchod hu me"))
         return await callback_query.answer(
-                f"""
+            f"""
 ❏ ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ
 ├ ᴀᴋᴜɴ: <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>
 ├ ɪᴅ: {X.me.id}
 ╰ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪ ʜᴀᴘᴜs ᴅᴀʀɪ ᴛᴇʟᴇɢʀᴀᴍ
-""", True
+""",
+            True,
         )
-        
 
 
 async def cek_userbot_expired(client, callback_query):
