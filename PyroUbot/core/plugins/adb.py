@@ -331,7 +331,7 @@ async def get_num_otp(client, callback_query):
         if code == None:
             return await callback_query.answer(
                 "🔐 ᴋᴏᴅᴇ ᴛᴡᴏ-ғᴀᴄᴛᴏʀ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ "
-                True,
+                True
             )
         else:
             return await callback_query.edit_message_text(
