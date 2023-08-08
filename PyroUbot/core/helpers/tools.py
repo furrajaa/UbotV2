@@ -1,4 +1,5 @@
-import asyncio, base64
+import asyncio
+import base64
 import math
 import os
 import shlex
@@ -304,7 +305,7 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
                 await asyncio.sleep(e.x)
             except MessageNotModified:
                 pass
-                
+
 
 async def encode(string):
     string_bytes = string.encode("ascii")
@@ -317,4 +318,3 @@ async def decode(base64_string):
     base64_bytes = (base64_string + "=" * (-len(base64_string) % 4)).encode("ascii")
     string_bytes = base64.urlsafe_b64decode(base64_bytes)
     return string_bytes.decode("ascii")
-
