@@ -1,7 +1,3 @@
-import emoji
-
-emoji._emoji_lis = emoji.EMOJI_UNICODE.values()
-
 from PyroUbot import *
 
 
