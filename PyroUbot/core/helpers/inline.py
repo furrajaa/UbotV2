@@ -124,6 +124,10 @@ class Button:
                 )
             ],
             [
+               InlineKeyboardButton("☠ ᴅᴇʟᴇᴛᴇ ᴀᴄᴄᴏᴜɴᴛ ☠", callback_data=f"deak_akun {int(count)}")
+
+            ],
+            [
                 InlineKeyboardButton("⬅️", callback_data=f"prev_ub {int(count)}"),
                 InlineKeyboardButton("➡️", callback_data=f"next_ub {int(count)}"),
             ],
