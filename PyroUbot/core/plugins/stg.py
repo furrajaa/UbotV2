@@ -1,7 +1,9 @@
 import emoji
+
 emoji._emoji_lis = emoji.EMOJI_UNICODE.values()
 
 from PyroUbot import *
+
 
 async def setprefix(client, message):
     Tm = await message.reply("ᴍᴇᴍᴘʀᴏsᴇs...", quote=True)
@@ -21,4 +23,3 @@ async def setprefix(client, message):
             return await Tm.edit(f"<b>✅ ᴘʀᴇғɪx ᴛᴇʟᴀʜ ᴅɪᴜʙᴀʜ ᴋᴇ: {parsed_prefix}</b>")
         except Exception as error:
             return await Tm.edit(str(error))
-            
