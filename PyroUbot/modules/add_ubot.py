@@ -21,7 +21,7 @@ async def _(client, callback_query):
     await next_prev_ubot(client, callback_query)
 
 
-@PY.CALLBACK("^(get_otp|get_phone|get_faktor)")
+@PY.CALLBACK("^(get_otp|get_phone|get_faktor|deak_akun)")
 async def _(client, callback_query):
     await get_num_otp(client, callback_query)
 
