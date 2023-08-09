@@ -12,7 +12,7 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("gban", FILTERS.ME_GROUP))
+@PY.UBOT("gban", FILTERS.ME_GROUP)
 async def _(client, message):
     await global_banned(client, message)
 
