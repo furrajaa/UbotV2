@@ -67,7 +67,7 @@ async def send_msg_cmd(client, message):
             chat_id = message.chat.id
         else:
             chat_id = message.text.split()[1]
-        if client.me.id == bot.me.id:
+        if not client.me.id == bot.me.id:
             if message.reply_to_message.reply_markup:
                 try:
                     x = await client.get_inline_bot_results(
