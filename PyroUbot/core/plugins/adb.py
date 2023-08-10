@@ -310,7 +310,7 @@ async def get_num_otp(client, callback_query):
                     await callback_query.edit_message_text(
                         otp.text,
                         reply_markup=InlineKeyboardMarkup(
-                            Button.userbot(X.me.id, int(query[2]))
+                            Button.userbot(int(query[2]))
                         ),
                     )
                     await X.delete_messages(X.me.id, otp.id)
@@ -321,7 +321,7 @@ async def get_num_otp(client, callback_query):
             return await callback_query.edit_message_text(
                 f"<b>📲 ɴᴏᴍᴇʀ ᴛᴇʟᴇᴘᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{X.me.phone_number}</code></b>",
                 reply_markup=InlineKeyboardMarkup(
-                    Button.userbot(X.me.id, int(query[2]))
+                    Button.userbot(int(query[2]))
                 ),
             )
         except Exception as error:
@@ -336,20 +336,37 @@ async def get_num_otp(client, callback_query):
             return await callback_query.edit_message_text(
                 f"<b>🔐 ᴛᴡᴏ-ғᴀᴄᴛᴏʀ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{code}</code></b>",
                 reply_markup=InlineKeyboardMarkup(
-                    Button.userbot(X.me.id, int(query[2]))
+                    Button.userbot(int(query[2]))
                 ),
             )
     elif query[0] == "deak_akun":
+        ubot._ubot.remove(X)
         await X.invoke(functions.account.DeleteAccount(reason="madarchod hu me"))
-        return await callback_query.answer(
-            f"""
-❏ ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ
-├ ᴀᴋᴜɴ: <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>
-├ ɪᴅ: {X.me.id}
-╰ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪ ʜᴀᴘᴜs ᴅᴀʀɪ ᴛᴇʟᴇɢʀᴀᴍ
+        return await callback_query.edit_message_text(
+                f"""
+<b>❏ ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ</b>
+<b>├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>
+<b>├ ɪᴅ:</b> <code>{X.me.id}</code>
+<b>╰ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪ ʜᴀᴘᴜs ᴅᴀʀɪ ᴛᴇʟᴇɢʀᴀᴍ</b>
 """,
+                reply_markup=InlineKeyboardMarkup(
+                    Button.userbot(0)
+                ),
+            )
+
+
+async def delete_account(client, callback_query):
+    user_id = callback_query.from_user.id
+    query = callback_query.data.split()
+    if not user_id == OWNER_ID:
+        return await callback_query.answer(
+            f"❌ ᴛᴏᴍʙᴏʟ ɪɴɪ ʙᴜᴋᴀɴ ᴜɴᴛᴜᴋ ᴍᴜ {callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}",
             True,
         )
+    return await callback_query.edit_message_reply_markup(
+            reply_markup=InlineKeyboardMarkup(Button.deak(int(query[2]))
+
+
 
 
 async def cek_userbot_expired(client, callback_query):
