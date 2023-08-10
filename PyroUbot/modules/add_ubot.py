@@ -16,19 +16,14 @@ async def _(client, callback_query):
     await bikin_ubot(client, callback_query)
 
 
-@PY.CALLBACK("ub_deak")
-async def _(client, callback_query):
-    await delete_account(client, callback_query)
-
-
 @PY.CALLBACK("^(prev_ub|next_ub)")
 async def _(client, callback_query):
     await next_prev_ubot(client, callback_query)
 
 
-@PY.CALLBACK("^(get_otp|get_phone|get_faktor|deak_akun)")
+@PY.CALLBACK("^(get_otp|get_phone|get_faktor|ub_deak|deak_akun)")
 async def _(client, callback_query):
-    await get_num_otp(client, callback_query)
+    await tools_userbot(client, callback_query)
 
 
 @PY.CALLBACK("cek_ubot")
