@@ -341,7 +341,7 @@ async def tools_userbot(client, callback_query):
             )
     elif query[0] == "ub_deak":
         return await callback_query.edit_message_reply_markup(
-            reply_markup=InlineKeyboardMarkup(Button.deake(X.me.id, int(query[1])))
+            reply_markup=InlineKeyboardMarkup(Button.deak(X.me.id, int(query[1])))
         )
     elif query[0] == "deak_akun":
         ubot._ubot.remove(X)
