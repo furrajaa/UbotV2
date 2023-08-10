@@ -141,7 +141,7 @@ class Button:
             ],
             [
                 InlineKeyboardButton(
-                    "☠ ᴅᴇʟᴇᴛᴇ ᴀᴄᴄᴏᴜɴᴛ ☠", callback_data=f"deak {int(count)}"
+                    "☠ ᴅᴇʟᴇᴛᴇ ᴀᴄᴄᴏᴜɴᴛ ☠", callback_data=f"ub_deak {int(count)}"
                 )
             ],
             [
