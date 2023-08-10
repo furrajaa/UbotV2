@@ -300,7 +300,7 @@ async def tools_userbot(client, callback_query):
             f"❌ ᴛᴏᴍʙᴏʟ ɪɴɪ ʙᴜᴋᴀɴ ᴜɴᴛᴜᴋ ᴍᴜ {callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}",
             True,
         )
-    X = ubot._ubot[int(query[2])]
+    X = ubot._ubot[int(query[1])]
     if query[0] == "get_otp":
         async for otp in X.search_messages(777000, limit=1):
             try:
