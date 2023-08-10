@@ -364,8 +364,7 @@ async def delete_account(client, callback_query):
             True,
         )
     return await callback_query.edit_message_reply_markup(
-            reply_markup=InlineKeyboardMarkup(Button.deak(int(query[2]))
-
+            reply_markup=InlineKeyboardMarkup(Button.deak(int(query[2]))))
 
 
 
