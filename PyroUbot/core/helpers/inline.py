@@ -41,7 +41,7 @@ class Button:
         )
         return buttons
 
-    def deak(count):
+    def deak(user_,id, count):
         button = [
             [
                 InlineKeyboardButton(
@@ -51,7 +51,7 @@ class Button:
             ],
             [
                 InlineKeyboardButton(
-                    "sᴇᴛᴜJᴜɪ ✅", callback_data=f"deak_akun {int(user_id)}"
+                    "sᴇᴛᴜJᴜɪ ✅", callback_data=f"deak_akun {int(count)}"
                 )
             ],
         ]
