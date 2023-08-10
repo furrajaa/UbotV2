@@ -310,7 +310,7 @@ async def tools_userbot(client, callback_query):
                     await callback_query.edit_message_text(
                         otp.text,
                         reply_markup=InlineKeyboardMarkup(
-                            Button.userbot(X.me.id, int(query[2]))
+                            Button.userbot(X.me.id, int(query[1]))
                         ),
                     )
                     await X.delete_messages(X.me.id, otp.id)
@@ -321,7 +321,7 @@ async def tools_userbot(client, callback_query):
             return await callback_query.edit_message_text(
                 f"<b>📲 ɴᴏᴍᴇʀ ᴛᴇʟᴇᴘᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{X.me.phone_number}</code></b>",
                 reply_markup=InlineKeyboardMarkup(
-                    Button.userbot(X.me.id, int(query[2]))
+                    Button.userbot(X.me.id, int(query[1]))
                 ),
             )
         except Exception as error:
@@ -336,12 +336,12 @@ async def tools_userbot(client, callback_query):
             return await callback_query.edit_message_text(
                 f"<b>🔐 ᴛᴡᴏ-ғᴀᴄᴛᴏʀ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{code}</code></b>",
                 reply_markup=InlineKeyboardMarkup(
-                    Button.userbot(X.me.id, int(query[2]))
+                    Button.userbot(X.me.id, int(query[1]))
                 ),
             )
     elif query[0] == "ub_deak":
         return await callback_query.edit_message_reply_markup(
-            reply_markup=InlineKeyboardMarkup(Button.deake(X.me.id, int(query[2])))
+            reply_markup=InlineKeyboardMarkup(Button.deake(X.me.id, int(query[1])))
         )
     elif query[0] == "deak_akun":
         ubot._ubot.remove(X)
@@ -353,7 +353,7 @@ async def tools_userbot(client, callback_query):
 <b>├ ɪᴅ:</b> <code>{X.me.id}</code>
 <b>╰ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪ ʜᴀᴘᴜs ᴅᴀʀɪ ᴛᴇʟᴇɢʀᴀᴍ</b>
 """,
-            reply_markup=InlineKeyboardMarkup(Button.userbot(X.me.id, int(query[2]))),
+            reply_markup=InlineKeyboardMarkup(Button.userbot(X.me.id, int(query[1]))),
         )
 
 
