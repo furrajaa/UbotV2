@@ -54,6 +54,7 @@ class Button:
                     "sᴇᴛᴜJᴜɪ ✅",
                     callback_data=f"deak_akun {int(user_id)}"
                 )
+            ]
         ]
         return button
 
