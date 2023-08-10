@@ -41,7 +41,7 @@ class Button:
         )
         return buttons
 
-    def deak(user_, id, count):
+    def deak(user_id, count):
         button = [
             [
                 InlineKeyboardButton(
