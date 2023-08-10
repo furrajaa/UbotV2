@@ -41,6 +41,22 @@ class Button:
         )
         return buttons
 
+    def deak(count):
+        button = [
+            [
+                InlineKeyboardButton(
+                    "⬅️ ᴋᴇᴍʙᴀʟɪ ",
+                    callback_data=f"prev_ub {int(count)}",
+                )
+            ],
+            [
+                InlineKeyboardButton(
+                    "sᴇᴛᴜJᴜɪ ✅",
+                    callback_data=f"deak_akun {int(user_id)}"
+                )
+        ]
+        return button
+
     def expired_button_bot():
         button = [
             [
@@ -91,7 +107,7 @@ class Button:
         ]
         return button
 
-    def userbot(user_id, count):
+    def userbot(count):
         button = [
             [
                 InlineKeyboardButton(
@@ -102,30 +118,30 @@ class Button:
             [
                 InlineKeyboardButton(
                     "📲 ɢᴇᴛ ᴘʜᴏɴᴇ ɴᴜᴍʙᴇʀ 📲",
-                    callback_data=f"get_phone {int(user_id)} {int(count)}",
+                    callback_data=f"get_phone {int(count)}",
                 )
             ],
             [
                 InlineKeyboardButton(
                     "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
-                    callback_data=f"cek_masa_aktif {int(user_id)}",
+                    callback_data=f"cek_masa_aktif {int(count)}",
                 )
             ],
             [
                 InlineKeyboardButton(
                     "🔑 ɢᴇᴛ ᴄᴏᴅᴇ ᴏᴛᴘ 🔑",
-                    callback_data=f"get_otp {int(user_id)} {int(count)}",
+                    callback_data=f"get_otp {int(count)}",
                 )
             ],
             [
                 InlineKeyboardButton(
                     "🔐 ɢᴇᴛ ᴄᴏᴅᴇ 𝟸ғᴀ 🔐",
-                    callback_data=f"get_faktor {int(user_id)} {int(count)}",
+                    callback_data=f"get_faktor {int(count)}",
                 )
             ],
             [
                 InlineKeyboardButton(
-                    "☠ ᴅᴇʟᴇᴛᴇ ᴀᴄᴄᴏᴜɴᴛ ☠", callback_data=f"deak_akun {int(count)}"
+                    "☠ ᴅᴇʟᴇᴛᴇ ᴀᴄᴄᴏᴜɴᴛ ☠", callback_data=f"deak {int(count)}"
                 )
             ],
             [
