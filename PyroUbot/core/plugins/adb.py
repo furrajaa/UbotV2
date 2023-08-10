@@ -320,7 +320,9 @@ async def tools_userbot(client, callback_query):
         try:
             return await callback_query.edit_message_text(
                 f"<b>📲 ɴᴏᴍᴇʀ ᴛᴇʟᴇᴘᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{X.me.phone_number}</code></b>",
-                reply_markup=InlineKeyboardMarkup(Button.userbot(X.me.id, int(query[2]))),
+                reply_markup=InlineKeyboardMarkup(
+                    Button.userbot(X.me.id, int(query[2]))
+                ),
             )
         except Exception as error:
             return await callback_query.answer(error, True)
@@ -333,7 +335,9 @@ async def tools_userbot(client, callback_query):
         else:
             return await callback_query.edit_message_text(
                 f"<b>🔐 ᴛᴡᴏ-ғᴀᴄᴛᴏʀ ᴀᴜᴛʜᴇɴᴛɪᴄᴀᴛɪᴏɴ ᴅᴇɴɢᴀɴ ᴜsᴇʀ_ɪᴅ <code>{X.me.id}</code> ᴀᴅᴀʟᴀʜ <code>{code}</code></b>",
-                reply_markup=InlineKeyboardMarkup(Button.userbot(X.me.id, int(query[2]))),
+                reply_markup=InlineKeyboardMarkup(
+                    Button.userbot(X.me.id, int(query[2]))
+                ),
             )
     elif query[0] == "ub_deak":
         return await callback_query.edit_message_reply_markup(
