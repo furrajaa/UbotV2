@@ -50,7 +50,7 @@ class Button:
                 ),
                 InlineKeyboardButton(
                     "sᴇᴛᴜJᴜɪ ✅", callback_data=f"deak_akun {int(count)}"
-                )
+                ),
             ],
         ]
         return button
