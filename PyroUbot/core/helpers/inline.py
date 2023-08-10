@@ -107,7 +107,7 @@ class Button:
         ]
         return button
 
-    def userbot(count):
+    def userbot(user_id, count):
         button = [
             [
                 InlineKeyboardButton(
@@ -124,7 +124,7 @@ class Button:
             [
                 InlineKeyboardButton(
                     "⏳ ᴄᴇᴋ ᴍᴀsᴀ ᴀᴋᴛɪғ ⏳",
-                    callback_data=f"cek_masa_aktif {int(count)}",
+                    callback_data=f"cek_masa_aktif {int(user_id)}",
                 )
             ],
             [
