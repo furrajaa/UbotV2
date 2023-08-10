@@ -15,6 +15,10 @@ async def _(client, callback_query):
 async def _(client, callback_query):
     await bikin_ubot(client, callback_query)
 
+@PY.CALLBACK("ub_deak")
+async def _(client, callback_query):
+     await delete_account(client, callback_query)
+
 
 @PY.CALLBACK("^(prev_ub|next_ub)")
 async def _(client, callback_query):
