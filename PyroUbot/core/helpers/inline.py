@@ -47,9 +47,7 @@ class Button:
                 InlineKeyboardButton(
                     "⬅️ ᴋᴇᴍʙᴀʟɪ ",
                     callback_data=f"prev_ub {int(count)}",
-                )
-            ],
-            [
+                ),
                 InlineKeyboardButton(
                     "sᴇᴛᴜJᴜɪ ✅", callback_data=f"deak_akun {int(count)}"
                 )
