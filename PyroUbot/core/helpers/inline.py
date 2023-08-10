@@ -51,10 +51,9 @@ class Button:
             ],
             [
                 InlineKeyboardButton(
-                    "sᴇᴛᴜJᴜɪ ✅",
-                    callback_data=f"deak_akun {int(user_id)}"
+                    "sᴇᴛᴜJᴜɪ ✅", callback_data=f"deak_akun {int(user_id)}"
                 )
-            ]
+            ],
         ]
         return button
 
