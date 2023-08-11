@@ -10,8 +10,6 @@ from pyromod import listen
 
 from PyroUbot.config import *
 
-TEST = {}
-
 
 class ConnectionHandler(logging.Handler):
     def emit(self, record):
