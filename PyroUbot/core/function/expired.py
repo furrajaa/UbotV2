@@ -32,7 +32,9 @@ async def expiredUserbots():
                         MSG.EXPIRED_MSG_BOT(X),
                         reply_markup=InlineKeyboardMarkup(Button.expired_button_bot()),
                     )
-                    await bot.send_message(X.me.id, "<b>💬 ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ʙᴇʀᴀᴋʜɪʀ")
+                    await bot.send_message(
+                        X.me.id, "<b>💬 ᴍᴀsᴀ ᴀᴋᴛɪꜰ ᴀɴᴅᴀ ᴛᴇʟᴀʜ ʙᴇʀᴀᴋʜɪʀ"
+                    )
             except Exception as e:
                 print(f"Error: - {X.me.id} - :{str(e)}")
         await asyncio.sleep(10)
