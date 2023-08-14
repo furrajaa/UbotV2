@@ -5,6 +5,7 @@ from pyrogram.enums import ChatType
 
 from PyroUbot import *
 
+
 def get_message(message):
     if message.reply_to_message:
         msg = message.reply_to_message
@@ -14,6 +15,7 @@ def get_message(message):
         else:
             msg = " ".join(message.command[1:])
     return msg
+
 
 async def get_broadcast_id(client, query):
     chats = []
@@ -57,7 +59,7 @@ async def broadcast_group_cmd(client, message):
 
 async def broadcast_users_cmd(client, message):
     msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ", quote=True)
-    
+
     send = get_message(message)
     if not send:
         return await msg.edit("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ...")
