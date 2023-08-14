@@ -5,70 +5,81 @@ from pyrogram.enums import ChatType
 
 from PyroUbot import *
 
+def get_message(message):
+    if message.reply_to_message:
+        msg = message.reply_to_message
+    else:
+        if len(message.command) < 2:
+            msg = ""
+        else:
+            msg = " ".join(message.command[1:])
+    return msg
 
-async def get_group_id(client):
+async def get_broadcast_id(client, query):
     chats = []
-    async for dialog in client.iter_dialogs():
-        if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
-            chats.append(dialog.chat.id)
+    if query == "group":
+        async for dialog in client.get_dialogs():
+            if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
+                chats.append(dialog.chat.id)
+    elif query == "users":
+        async for dialog in client.get_dialogs():
+            if dialog.chat.type == ChatType.PRIVATE:
+                chats.append(dialog.chat.id)
     return chats
 
 
 async def broadcast_group_cmd(client, message):
-    msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ...")
+    msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ...", quote=True)
 
-    send = get_arg(message)
+    send = get_message(message)
     if not send:
         return await msg.edit("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ")
 
-    chats = await get_group_id(client)
+    chats = await get_broadcast_id(client, "group")
     blacklist = await get_chat(client.me.id)
 
-    tasks = []
-    sent = 0
+    done = 0
     for chat_id in chats:
         if chat_id in blacklist:
             continue
 
-        if message.reply_to_message:
-            task = asyncio.create_task(send.copy(chat_id))
-        else:
-            task = asyncio.create_task(client.send_message(chat_id, send))
-        tasks.append(task)
+        try:
+            if message.reply_to_message:
+                await send.copy(chat_id)
+            else:
+                await client.send_message(chat_id, send)
+            done += 1
+        except Exception:
+            pass
 
-    await asyncio.gather(*tasks, return_exceptions=True)
-
-    sent = sum(1 for task in tasks if task and not isinstance(task, Exception))
-
-    await msg.delete()
-    await message.reply(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
+    return await msg.edit(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {done} ɢʀᴏᴜᴘ</b>")
 
 
 async def broadcast_users_cmd(client, message):
-    sent = 0
-    msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ")
-    async for dialog in client.get_dialogs(limit=None):
-        if dialog.chat.type == ChatType.PRIVATE:
+    msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ", quote=True)
+    
+    send = get_message(message)
+    if not send:
+        return await msg.edit("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ...")
+
+    chats = await get_broadcast_id(client, "users")
+    blacklist = await get_chat(client.me.id)
+
+    done = 0
+    for chat_id in chats:
+        if chat_id in blacklist:
+            continue
+
+        try:
             if message.reply_to_message:
-                send = message.reply_to_message
+                await send.copy(chat_id)
             else:
-                if len(message.command) < 2:
-                    await msg.delete()
-                    return await message.reply("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ")
-                else:
-                    send = message.text.split(None, 1)[1]
-            chat_id = dialog.chat.id
-            try:
-                if message.reply_to_message:
-                    await send.copy(chat_id)
-                else:
-                    await client.send_message(chat_id, send)
-                sent += 1
-                await asyncio.sleep(3)
-            except Exception:
-                pass
-    await msg.delete()
-    await message.reply(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
+                await client.send_message(chat_id, send)
+            done += 1
+        except Exception:
+            pass
+
+    return await msg.edit(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
 
 
 async def send_msg_cmd(client, message):
