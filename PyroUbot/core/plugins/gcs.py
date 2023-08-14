@@ -6,30 +6,43 @@ from pyrogram.enums import ChatType
 from PyroUbot import *
 
 
-async def broadcast_group_cmd(client, message):
-    sent = 0
-    msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ")
-    async for dialog in client.get_dialogs(limit=None):
+async def get_group_id(client):
+    chats = []
+    async for dialog in client.iter_dialogs():
         if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
-            if message.reply_to_message:
-                send = message.reply_to_message
-            else:
-                if len(message.command) < 2:
-                    await msg.delete()
-                    return await message.reply("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ")
-                else:
-                    send = message.text.split(None, 1)[1]
-            chat_id = dialog.chat.id
-            if chat_id not in await get_chat(client.me.id):
-                try:
-                    if message.reply_to_message:
-                        await send.copy(chat_id)
-                    else:
-                        await client.send_message(chat_id, send)
-                    sent += 1
-                    await asyncio.sleep(2)
-                except Exception:
-                    pass
+            chats.append(dialog.chat.id)
+    return chats
+
+async def broadcast_group_cmd(client, message):
+    msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ...")
+
+    send = get_arg(message)
+    if not send:
+        return await msg.edit("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ")
+
+    chats = await get_group_id(client)
+    blacklist = await get_chat(client.me.id)
+
+    tasks = []
+    sent = 0
+    for chat_id in chats:
+        if chat_id in blacklist:
+            continue
+
+        if message.reply_to_message:
+            task = asyncio.create_task(
+                send.copy(chat_id)
+            )
+        else:
+            task = asyncio.create_task(
+                client.send_message(chat_id, send)
+            )
+        tasks.append(task)
+
+    await asyncio.gather(*tasks, return_exceptions=True)
+
+    sent = sum(1 for task in tasks if task and not isinstance(task, Exception))
+
     await msg.delete()
     await message.reply(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
 
