@@ -13,6 +13,7 @@ async def get_group_id(client):
             chats.append(dialog.chat.id)
     return chats
 
+
 async def broadcast_group_cmd(client, message):
     msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ...")
 
@@ -30,13 +31,9 @@ async def broadcast_group_cmd(client, message):
             continue
 
         if message.reply_to_message:
-            task = asyncio.create_task(
-                send.copy(chat_id)
-            )
+            task = asyncio.create_task(send.copy(chat_id))
         else:
-            task = asyncio.create_task(
-                client.send_message(chat_id, send)
-            )
+            task = asyncio.create_task(client.send_message(chat_id, send))
         tasks.append(task)
 
     await asyncio.gather(*tasks, return_exceptions=True)
