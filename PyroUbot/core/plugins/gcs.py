@@ -6,30 +6,6 @@ from pyrogram.enums import ChatType
 from PyroUbot import *
 
 
-def get_message(message):
-    if message.reply_to_message:
-        msg = message.reply_to_message
-    else:
-        if len(message.command) < 2:
-            msg = ""
-        else:
-            msg = " ".join(message.command[1:])
-    return msg
-
-
-async def get_broadcast_id(client, query):
-    chats = []
-    if query == "group":
-        async for dialog in client.get_dialogs():
-            if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
-                chats.append(dialog.chat.id)
-    elif query == "users":
-        async for dialog in client.get_dialogs():
-            if dialog.chat.type == ChatType.PRIVATE:
-                chats.append(dialog.chat.id)
-    return chats
-
-
 async def broadcast_group_cmd(client, message):
     msg = await message.reply("sᴇᴅᴀɴɢ ᴍᴇᴍᴘʀᴏsᴇs ᴍᴏʜᴏɴ ʙᴇʀsᴀʙᴀʀ...", quote=True)
 
@@ -65,11 +41,10 @@ async def broadcast_users_cmd(client, message):
         return await msg.edit("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ...")
 
     chats = await get_broadcast_id(client, "users")
-    blacklist = await get_chat(client.me.id)
 
     done = 0
     for chat_id in chats:
-        if chat_id in blacklist:
+        if chat_id == client.me.id:
             continue
 
         try:
