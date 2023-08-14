@@ -6,9 +6,32 @@ import shlex
 import textwrap
 from io import BytesIO
 from time import time
-
+from pyrogram.enums import ChatType
 from PIL import Image, ImageDraw, ImageFont
 from pymediainfo import MediaInfo
+
+def get_message(message):
+    if message.reply_to_message:
+        msg = message.reply_to_message
+    else:
+        if len(message.command) < 2:
+            msg = ""
+        else:
+            msg = " ".join(message.command[1:])
+    return msg
+
+
+async def get_broadcast_id(client, query):
+    chats = []
+    if query == "group":
+        async for dialog in client.get_dialogs():
+            if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
+                chats.append(dialog.chat.id)
+    elif query == "users":
+        async for dialog in client.get_dialogs():
+            if dialog.chat.type == ChatType.PRIVATE:
+                chats.append(dialog.chat.id)
+    return chats
 
 
 class Media_Info:
