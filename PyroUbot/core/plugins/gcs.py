@@ -1,6 +1,6 @@
 import asyncio
 from gc import get_objects
-
+import time
 from pyrogram.errors import ChatWriteForbidden, FloodWait, PeerIdInvalid
 
 from PyroUbot import *
@@ -57,8 +57,13 @@ async def broadcast_users_cmd(client, message):
                 await client.send_message(chat_id, send)
             done += 1
             await asyncio.sleep(1)
-        except (ChatWriteForbidden, PeerIdInvalid):
-            pass
+        except Exception as e:
+            if "FloodWait" in str(e):
+                wait_seconds = int(e.split()[-2])
+                time.sleep(wait_seconds + 1)
+                continue
+            else:
+                pass
 
     return await msg.edit(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ᴜsᴇʀs</b>")
 
