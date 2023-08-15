@@ -3,12 +3,11 @@ import random
 
 from pyrogram.raw.functions.messages import DeleteHistory
 
-from PyroUbot import extract_user, send_message
-
+from PyroUbot import *
 
 async def sg_cmd(client, message):
     get_user = await extract_user(message)
-    lol = await send_message(message, "<b>ᴍᴇᴍᴘʀᴏsᴇs. . .</b>")
+    lol = await client.send_message(message, "<b>ᴍᴇᴍᴘʀᴏsᴇs. . .</b>")
 
     if not get_user:
         return await lol.edit("<b>ᴜsᴇʀ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
