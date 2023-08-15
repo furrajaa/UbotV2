@@ -12,10 +12,13 @@ async def sg_cmd(client, message):
     if not get_user:
         return await lol.edit("<b>ᴜsᴇʀ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
     try:
-        user_id = (await client.get_users(get_user)).id
+        get = await client.get_users(get_user)
+        user_id = get.id
+        name = f"{get.first_name} {get.last_name or ''}"
     except Exception:
         try:
             user_id = int(message.command[1])
+            name = user_id
         except Exception as error:
             return await lol.edit(error)
     bot = ["@Sangmata_bot", "@SangMata_beta_bot"]
@@ -33,6 +36,6 @@ async def sg_cmd(client, message):
                 f"❌ {getbot} ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇʀᴇsᴘᴏɴ ᴘᴇʀᴍɪɴᴛᴀᴀɴ", quote=True
             )
         else:
-            await message.reply(history, quote=True)
+            await message.reply(history.replace(user_id, f"{}{{", quote=True)
     user_info = await client.resolve_peer(getbot)
     return await client.invoke(DeleteHistory(peer=user_info, max_id=0, revoke=True))
