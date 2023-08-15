@@ -1,5 +1,6 @@
 import asyncio
 from gc import get_objects
+from pyrogram.errors import ChatWriteForbidden, PeerIdInvalid
 
 from PyroUbot import *
 
@@ -25,7 +26,7 @@ async def broadcast_group_cmd(client, message):
             else:
                 await client.send_message(chat_id, send)
             done += 1
-        except Exception:
+        except (ChatWriteForbidden, PeerIdInvalid):
             pass
 
     return await msg.edit(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {done} ɢʀᴏᴜᴘ</b>")
@@ -51,7 +52,7 @@ async def broadcast_users_cmd(client, message):
             else:
                 await client.send_message(chat_id, send)
             done += 1
-        except Exception:
+        except (ChatWriteForbidden, PeerIdInvalid):
             pass
 
     return await msg.edit(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ɢʀᴏᴜᴘ</b>")
