@@ -5,6 +5,7 @@ from pyrogram.raw.functions.messages import DeleteHistory
 
 from PyroUbot import *
 
+
 async def sg_cmd(client, message):
     get_user = await extract_user(message)
     lol = await client.send_message(message, "<b>ᴍᴇᴍᴘʀᴏsᴇs. . .</b>")
