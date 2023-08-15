@@ -34,7 +34,8 @@ async def sg_cmd(client, message):
 
     for history in sg_name:
         if not history:
-            await message.reply(f"❌ {getbot} ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇʀᴇsᴘᴏɴ ᴘᴇʀᴍɪɴᴛᴀᴀɴ", quote=True
+            await message.reply(
+                f"❌ {getbot} ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇʀᴇsᴘᴏɴ ᴘᴇʀᴍɪɴᴛᴀᴀɴ", quote=True
             )
         else:
             await message.reply(history.replace(str(user_id), name), quote=True)
