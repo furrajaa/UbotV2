@@ -29,10 +29,13 @@ async def broadcast_group_cmd(client, message):
                 await client.send_message(chat_id, send)
             done += 1
             await asyncio.sleep(2)
-        except (ChatWriteForbidden, PeerIdInvalid):
-            pass
-        except FloodWait as e:
-            await asyncio.sleep(e.x + 5)
+        except Exception as e:
+            if "FloodWait" in str(e):
+                wait_seconds = int(e.split()[-2])
+                await asyncio.sleep(wait_seconds + 1)
+                continue
+            else:
+                pass
 
     return await msg.edit(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {done} ɢʀᴏᴜᴘ</b>")
 
@@ -61,7 +64,7 @@ async def broadcast_users_cmd(client, message):
         except Exception as e:
             if "FloodWait" in str(e):
                 wait_seconds = int(e.split()[-2])
-                time.sleep(wait_seconds + 1)
+                await asyncio.sleep(wait_seconds + 1)
                 continue
             else:
                 pass
