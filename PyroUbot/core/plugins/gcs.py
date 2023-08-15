@@ -27,6 +27,7 @@ async def broadcast_group_cmd(client, message):
             else:
                 await client.send_message(chat_id, send)
             done += 1
+            await asyncio.sleep(1)
         except (ChatWriteForbidden, PeerIdInvalid):
             pass
 
@@ -53,6 +54,7 @@ async def broadcast_users_cmd(client, message):
             else:
                 await client.send_message(chat_id, send)
             done += 1
+            await asyncio.sleep(1)
         except (ChatWriteForbidden, PeerIdInvalid):
             pass
 
