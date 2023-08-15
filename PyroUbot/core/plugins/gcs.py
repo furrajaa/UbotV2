@@ -1,5 +1,6 @@
 import asyncio
 from gc import get_objects
+from pyrogram.errors.exceptions import FloodWait
 
 from PyroUbot import *
 
@@ -25,13 +26,15 @@ async def broadcast_group_cmd(client, message):
             else:
                 await client.send_message(chat_id, send)
             done += 1
-        except Exception as e:
-            if "FloodWait" in str(e):
-                wait_seconds = int(e.split()[-2])
-                await asyncio.sleep(wait_seconds)
-                continue
+        except FloodWait as e:
+            await asyncio.sleep(e.x)
+            if message.reply_to_message:
+                await send.copy(chat_id)
             else:
-                pass
+                await client.send_message(chat_id, send)
+            done += 1
+        except Exception:
+            pass
 
     return await msg.edit(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {done} ɢʀᴏᴜᴘ</b>")
 
@@ -56,13 +59,15 @@ async def broadcast_users_cmd(client, message):
             else:
                 await client.send_message(chat_id, send)
             done += 1
-        except Exception as e:
-            if "FloodWait" in str(e):
-                wait_seconds = int(e.split()[-2])
-                await asyncio.sleep(wait_seconds)
-                continue
+        except FloodWait as e:
+            await asyncio.sleep(e.x)
+            if message.reply_to_message:
+                await send.copy(chat_id)
             else:
-                pass
+                await client.send_message(chat_id, send)
+            done += 1
+        except Exception:
+            pass
 
     return await msg.edit(f"<b>✅ ᴘᴇsᴀɴ ʙʀᴏᴀᴅᴄᴀsᴛ ᴀɴᴅᴀ ᴛᴇʀᴋɪʀɪᴍ ᴋᴇ {sent} ᴜsᴇʀs</b>")
 
