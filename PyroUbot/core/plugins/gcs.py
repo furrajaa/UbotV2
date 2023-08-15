@@ -25,11 +25,10 @@ async def broadcast_group_cmd(client, message):
             else:
                 await client.send_message(chat_id, send)
             done += 1
-            await asyncio.sleep(2)
         except Exception as e:
             if "FloodWait" in str(e):
                 wait_seconds = int(e.split()[-2])
-                await asyncio.sleep(wait_seconds + 1)
+                await asyncio.sleep(wait_seconds)
                 continue
             else:
                 pass
@@ -57,11 +56,10 @@ async def broadcast_users_cmd(client, message):
             else:
                 await client.send_message(chat_id, send)
             done += 1
-            await asyncio.sleep(1)
         except Exception as e:
             if "FloodWait" in str(e):
                 wait_seconds = int(e.split()[-2])
-                await asyncio.sleep(wait_seconds + 1)
+                await asyncio.sleep(wait_seconds)
                 continue
             else:
                 pass
