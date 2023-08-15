@@ -10,7 +10,7 @@ OWNER_ID = int(os.getenv("OWNER_ID", "1964437366"))
 
 LOGS_MAKER_UBOT = int(os.getenv("LOGS_MAKER_UBOT", "-1001969856888"))
 
-MAX_BOT = int(os.getenv("MAX_BOT", "100"))
+MAX_BOT = int(os.getenv("MAX_BOT", "50"))
 
 RMBG_API = os.getenv("RMBG_API", "b5ZnjZ2nUUpbdEHfcrWdjWbC")
 
