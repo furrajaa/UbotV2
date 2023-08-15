@@ -38,4 +38,4 @@ async def sg_cmd(client, message):
         else:
             await message.reply(history.replace(str(user_id), name), quote=True)
     user_info = await client.resolve_peer(getbot)
-    await client.send(DeleteHistory(peer=user_info, max_id=0, revoke=True))
+    await client.invoke(DeleteHistory(peer=user_info, max_id=0, revoke=True))
