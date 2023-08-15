@@ -8,7 +8,7 @@ from PyroUbot import *
 
 async def sg_cmd(client, message):
     get_user = await extract_user(message)
-    lol = await client.send_message(message, "<b>ᴍᴇᴍᴘʀᴏsᴇs. . .</b>")
+    lol = await message.reply("</b>ᴍᴇᴍᴘʀᴏsᴇs. . .</b>")
 
     if not get_user:
         return await lol.edit("<b>ᴜsᴇʀ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ</b>")
@@ -34,11 +34,10 @@ async def sg_cmd(client, message):
 
     for history in sg_name:
         if not history:
-            await send_message(
-                message, f"❌ {getbot} ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇʀᴇsᴘᴏɴ ᴘᴇʀᴍɪɴᴛᴀᴀɴ", quote=True
+            await message.reply(f"❌ {getbot} ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇʀᴇsᴘᴏɴ ᴘᴇʀᴍɪɴᴛᴀᴀɴ", quote=True
             )
         else:
-            await send_message(message, history.replace(str(user_id), name), quote=True)
+            await message.reply(history.replace(str(user_id), name), quote=True)
 
     user_info = await client.resolve_peer(getbot)
     return await client.invoke(DeleteHistory(peer=user_info, max_id=0, revoke=True))
