@@ -6,6 +6,8 @@ import shlex
 import textwrap
 from io import BytesIO
 from time import time
+from pyrogram.errors import *
+
 
 from PIL import Image, ImageDraw, ImageFont
 from pymediainfo import MediaInfo
