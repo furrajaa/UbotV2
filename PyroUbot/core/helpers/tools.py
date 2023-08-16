@@ -6,12 +6,11 @@ import shlex
 import textwrap
 from io import BytesIO
 from time import time
-from pyrogram.errors import *
-
 
 from PIL import Image, ImageDraw, ImageFont
 from pymediainfo import MediaInfo
 from pyrogram.enums import ChatType
+from pyrogram.errors import *
 
 
 def get_message(message):
