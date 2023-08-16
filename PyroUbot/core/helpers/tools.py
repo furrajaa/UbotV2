@@ -26,14 +26,13 @@ def get_message(message):
 
 async def get_broadcast_id(client, query):
     chats = []
-    chat_types = {
-        "group": (ChatType.GROUP, ChatType.SUPERGROUP),
-        "users": (ChatType.PRIVATE),
-    }
+    
     async for dialog in client.get_dialogs():
-        if dialog.chat.type in chat_types[query]:
+        if query == "group" and dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
             chats.append(dialog.chat.id)
-
+        elif query == "users" and dialog.chat.type == ChatType.PRIVATE:
+            chats.append(dialog.chat.id)
+    
     return chats
 
 
