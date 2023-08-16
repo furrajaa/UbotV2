@@ -15,7 +15,7 @@ MAX_BOT = int(os.getenv("MAX_BOT", "50"))
 RMBG_API = os.getenv("RMBG_API", "b5ZnjZ2nUUpbdEHfcrWdjWbC")
 
 OPENAI_KEY = os.getenv(
-    "OPENAI_KEY", "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"
+    "OPENAI_KEY", "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"
 )
 MONGO_URL = os.getenv(
     "MONGO_URL",
