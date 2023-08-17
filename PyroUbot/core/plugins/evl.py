@@ -12,29 +12,31 @@ from PyroUbot import *
 
 
 async def shell_cmd(client, message):
-    command = message.command
-
-    if len(command) < 2:
-        return await message.reply("noob")
-
+    command = get_arg(message)
+    msg = await message.reply("memproses...", quote=True)
+    if not command:
+        return await msg.edit("noob")
     try:
-        action = command[1]
-
-        if action == "shutdown":
+        if command == "shutdown":
+            await msg.delete()
             await handle_shutdown(message)
-        elif action == "restart":
+        elif command == "restart":
+            await msg.delete()
             await handle_restart(message)
-        elif action == "update":
+        elif command == "update":
             await handle_update(message)
-        elif action == "clean":
+            await msg.delete()
+        elif command == "clean":
             await handle_clean(message)
-        elif action == "host":
+            await msg.delete()
+        elif command == "host":
             await handle_host(message)
+            await msg.delete()
         else:
-            await process_command(message, " ".join(command[1:]))
-
+            await process_command(message, command)
+            await msg.delete()
     except Exception as error:
-        await message.reply(error)
+        await msg.edit(error)
 
 
 async def handle_shutdown(message):
@@ -49,14 +51,12 @@ async def handle_restart(message):
 
 async def handle_update(message):
     out = subprocess.check_output(["git", "pull"]).decode("UTF-8")
-
     if "Already up to date." in str(out):
         return await message.reply(out, quote=True)
     elif int(len(str(out))) > 4096:
         await send_large_output(message, out)
     else:
         await message.reply(f"```{out}```", quote=True)
-
     os.execl(sys.executable, sys.executable, "-m", "PyroUbot")
 
 
@@ -75,20 +75,15 @@ async def handle_clean(message):
 async def handle_host(message):
     system_info = get_system_info()
     formatted_info = format_system_info(system_info)
-
     await message.reply(formatted_info, quote=True)
 
 
 async def process_command(message, command):
-    msg = await message.reply("<b>Memproses</b>")
     result = (await bash(command))[0]
-
     if int(len(str(result))) > 4096:
         await send_large_output(message, result)
-        await msg.delete()
     else:
         await message.reply(result)
-        await msg.delete()
 
 
 async def send_large_output(message, output):
@@ -101,7 +96,6 @@ def get_system_info():
     uname = platform.uname()
     cpufreq = psutil.cpu_freq()
     svmem = psutil.virtual_memory()
-
     return {
         "system": uname.system,
         "release": uname.release,
@@ -162,7 +156,6 @@ def format_system_info(system_info):
     formatted_info += f"Available : {system_info['memory_available']}\n"
     formatted_info += f"Used      : {system_info['memory_used']}\n"
     formatted_info += f"Percentage: {system_info['memory_percentage']}%\n"
-
     return f"<b>{Fonts.smallcap(formatted_info.lower())}</b>"
 
 
