@@ -75,7 +75,9 @@ async def broadcast_users_cmd(client, message):
 
 async def send_msg_cmd(client, message):
     if message.reply_to_message:
-        chat_id = message.chat.id if len(message.command) < 2 else message.text.split()[1]
+        chat_id = (
+            message.chat.id if len(message.command) < 2 else message.text.split()[1]
+        )
         try:
             if client.me.id != bot.me.id:
                 if message.reply_to_message.reply_markup:
