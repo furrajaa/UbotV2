@@ -19,7 +19,7 @@ async def shell_cmd(client, message):
             await message.reply("✅ sʏsᴛᴇᴍ ʙᴇʀʜᴀsɪʟ ᴅɪᴍᴀᴛɪᴋᴀɴ", quote=True)
             os.system(f"kill -9 {os.getpid()}")
         elif message.command[1] == "restart":
-            await message.delete()
+            await message.reply("✅ sʏsᴛᴇᴍ ʙᴇʀʜᴀsɪʟ ᴅɪʀᴇsᴛᴀʀᴛ", quote=True)
             os.execl(sys.executable, sys.executable, "-m", "PyroUbot")
         elif message.command[1] == "update":
             out = subprocess.check_output(["git", "pull"]).decode("UTF-8")
