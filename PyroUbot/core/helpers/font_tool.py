@@ -2432,7 +2432,7 @@ def gens_font(font, text):
     if font == "typewriter":
         get_font = Fonts.typewriter(text)
     elif font == "outline":
-        get_font == Fonts.outline(text)
+        get_font = Fonts.outline(text)
     elif font == "serief":
         get_font = Fonts.serief(text)
     elif font == "bold_cool":
@@ -2492,7 +2492,7 @@ def gens_font(font, text):
     elif font == "ladybug":
         get_font = Fonts.ladybug(text)
     elif font == "rays":
-        get_font == Fonts.rays(text)
+        get_font = Fonts.rays(text)
     elif font == "birds":
         get_font = Fonts.birds(text)
     elif font == "slash":
