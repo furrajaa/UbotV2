@@ -79,21 +79,20 @@ async def send_msg_cmd(client, message):
             chat_id = message.chat.id
         else:
             chat_id = message.text.split()[1]
-
         try:
             if client.me.id != bot.me.id:
                 if message.reply_to_message.reply_markup:
                     x = await client.get_inline_bot_results(
                         bot.me.username, f"get_send {id(message)}"
                     )
-                    await client.send_inline_bot_result(
+                    return await client.send_inline_bot_result(
                         chat_id, x.query_id, x.results[0].id
                     )
         except Exception as error:
-            await message.reply(error)
+            return await message.reply(error)
         else:
             try:
-                await message.reply_to_message.copy(chat_id)
+                return await message.reply_to_message.copy(chat_id)
             except Exception as t:
                 return await message.reply(f"{t}")
     else:
@@ -101,7 +100,7 @@ async def send_msg_cmd(client, message):
             return await message.reply("ᴋᴇᴛɪᴋ ʏᴀɴɢ ʙᴇɴᴇʀ")
         chat_id, chat_text = message.text.split(None, 2)[1:]
         try:
-            await client.send_message(chat_id, chat_text)
+            return await client.send_message(chat_id, chat_text)
         except Exception as t:
             return await message.reply(f"{t}")
 
