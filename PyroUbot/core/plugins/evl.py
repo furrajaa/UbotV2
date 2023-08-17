@@ -24,8 +24,8 @@ async def shell_cmd(client, message):
             await msg.delete()
             await handle_restart(message)
         elif command == "update":
-            await handle_update(message)
             await msg.delete()
+            await handle_update(message)
         elif command == "clean":
             await handle_clean(message)
             await msg.delete()
