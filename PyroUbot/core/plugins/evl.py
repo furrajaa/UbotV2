@@ -31,7 +31,7 @@ async def shell_cmd(client, message):
         elif action == "host":
             await handle_host(message)
         else:
-            await process_command(message, command[1])
+            await process_command(message, " ".join(command[1:]))
 
     except Exception as error:
         await message.reply(error)
