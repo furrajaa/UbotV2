@@ -79,12 +79,16 @@ async def send_msg_cmd(client, message):
             chat_id = message.chat.id
         else:
             chat_id = message.text.split()[1]
-        
+
         try:
             if client.me.id != bot.me.id:
                 if message.reply_to_message.reply_markup:
-                    x = await client.get_inline_bot_results(bot.me.username, f"get_send {id(message)}")
-                    await client.send_inline_bot_result(chat_id, x.query_id, x.results[0].id)
+                    x = await client.get_inline_bot_results(
+                        bot.me.username, f"get_send {id(message)}"
+                    )
+                    await client.send_inline_bot_result(
+                        chat_id, x.query_id, x.results[0].id
+                    )
         except Exception as error:
             await message.reply(error)
         else:
@@ -113,7 +117,9 @@ async def send_inline(client, inline_query):
                 InlineQueryResultArticle(
                     title="get send!",
                     reply_markup=m.reply_to_message.reply_markup,
-                    input_message_content=InputTextMessageContent(m.reply_to_message.text),
+                    input_message_content=InputTextMessageContent(
+                        m.reply_to_message.text
+                    ),
                 )
             ],
         )
