@@ -36,8 +36,3 @@ async def _(client, message):
 @PY.UBOT("anime")
 async def _(client, message):
     await photo_anime(client, message)
-
-
-@PY.UBOT("bokep")
-async def _(client, message):
-    await video_bokep(client, message)
