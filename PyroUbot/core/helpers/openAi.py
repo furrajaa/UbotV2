@@ -1,24 +1,31 @@
 import asyncio
 
-import openai
+import openai, requests
 
 from PyroUbot import OPENAI_KEY
-
-openai.api_key = OPENAI_KEY
 
 
 class OpenAi:
     @staticmethod
     async def ChatGPT(question):
-        response = await asyncio.to_thread(
-            openai.ChatCompletion.create,
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": question},
-            ],
-        )
-        return response.choices[0].message["content"].strip()
+        url = "https://chatgpt-chatgpt3-5-chatgpt4.p.rapidapi.com/gpt4"
+        payload = {
+	"model": "gpt-4-0613",
+	"messages": [
+		{
+			"role": "user",
+			"content": question
+		}
+	],
+	"temperature": 0.8
+}
+        headers = {
+	"content-type": "application/json",
+	"X-RapidAPI-Key": "052cc80ccbmshc1b6d8c906b8fecp18b9f5jsna896ca05cb38",
+	"X-RapidAPI-Host": "chatgpt-chatgpt3-5-chatgpt4.p.rapidapi.com"
+}
+        response = requests.post(url, json=payload, headers=headers)
+        return response.json()["choices"][0]["message"]["content"])
 
     @staticmethod
     async def ImageDalle(question):
