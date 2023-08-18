@@ -62,18 +62,3 @@ async def photo_anime(client, message):
         await y.delete()
     except Exception as error:
         await y.edit(error)
-
-
-async def video_bokep(client, message):
-    y = await message.reply_text("<b>🔍 ᴍᴇɴᴄᴀʀɪ ᴠɪᴅᴇᴏ ʙᴏᴋᴇᴘ...</b>")
-    try:
-        bokepnya = []
-        async for bokep in client.search_messages(
-            -1001867672427, filter=MessagesFilter.VIDEO
-        ):
-            bokepnya.append(bokep)
-        video = random.choice(bokepnya)
-        await video.copy(message.chat.id, reply_to_message_id=message.id)
-        await y.delete()
-    except Exception as error:
-        await y.edit(error)
