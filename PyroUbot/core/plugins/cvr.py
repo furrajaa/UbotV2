@@ -249,7 +249,7 @@ async def convert_efek(client, message):
     reply = message.reply_to_message
     prefix = await ubot.get_prefix(client.me.id)
     if reply and list_efek:
-        if arga in list_efek:
+        if args in list_efek:
             Tm = await message.reply(f"ᴍᴇʀᴜʙᴀʜ sᴜᴀʀᴀ ᴍᴇɴᴊᴀᴅɪ {args}")
             indir = await client.download_media(reply)
             ses = await asyncio.create_subprocess_shell(
