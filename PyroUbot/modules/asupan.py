@@ -25,7 +25,7 @@ async def _(client, message):
 
 @PY.UBOT("hentai")
 async def _(client, message):
-    await waifu_cmf(client, message)
+    await waifu_cmd(client, message)
 
 
 @PY.UBOT("cewek")
