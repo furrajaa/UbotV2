@@ -23,6 +23,11 @@ async def _(client, message):
     await video_asupan(client, message)
 
 
+@PY.UBOT("hentai")
+async def _(client, message):
+    await waifu_cmf(client, message)
+
+
 @PY.UBOT("cewek")
 async def _(client, message):
     await photo_cewek(client, message)
