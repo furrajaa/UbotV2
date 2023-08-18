@@ -1,8 +1,8 @@
 import asyncio
 
-import openai, requests
+import openai
+import requests
 
-from PyroUbot import OPENAI_KEY
 
 
 class OpenAi:
@@ -10,20 +10,15 @@ class OpenAi:
     async def ChatGPT(question):
         url = "https://chatgpt-chatgpt3-5-chatgpt4.p.rapidapi.com/gpt4"
         payload = {
-	"model": "gpt-4-0613",
-	"messages": [
-		{
-			"role": "user",
-			"content": question
-		}
-	],
-	"temperature": 0.8
-}
+            "model": "gpt-4-0613",
+            "messages": [{"role": "user", "content": question}],
+            "temperature": 0.8,
+        }
         headers = {
-	"content-type": "application/json",
-	"X-RapidAPI-Key": "052cc80ccbmshc1b6d8c906b8fecp18b9f5jsna896ca05cb38",
-	"X-RapidAPI-Host": "chatgpt-chatgpt3-5-chatgpt4.p.rapidapi.com"
-}
+            "content-type": "application/json",
+            "X-RapidAPI-Key": "052cc80ccbmshc1b6d8c906b8fecp18b9f5jsna896ca05cb38",
+            "X-RapidAPI-Host": "chatgpt-chatgpt3-5-chatgpt4.p.rapidapi.com",
+        }
         response = requests.post(url, json=payload, headers=headers)
         return response.json()["choices"][0]["message"]["content"]
 
