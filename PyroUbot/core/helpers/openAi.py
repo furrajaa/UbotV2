@@ -25,7 +25,7 @@ class OpenAi:
 	"X-RapidAPI-Host": "chatgpt-chatgpt3-5-chatgpt4.p.rapidapi.com"
 }
         response = requests.post(url, json=payload, headers=headers)
-        return response.json()["choices"][0]["message"]["content"])
+        return response.json()["choices"][0]["message"]["content"]
 
     @staticmethod
     async def ImageDalle(question):
