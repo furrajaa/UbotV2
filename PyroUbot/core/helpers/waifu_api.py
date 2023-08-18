@@ -1,4 +1,7 @@
-import requests, random
+import random
+
+import requests
+
 
 class Waifu:
     def hentai():

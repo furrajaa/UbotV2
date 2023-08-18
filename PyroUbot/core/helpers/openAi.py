@@ -4,7 +4,6 @@ import openai
 import requests
 
 
-
 class OpenAi:
     @staticmethod
     async def ChatGPT(question):
