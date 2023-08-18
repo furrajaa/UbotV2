@@ -42,8 +42,8 @@ from PyroUbot.core.plugins.tll import *
 from PyroUbot.core.plugins.tny import *
 from PyroUbot.core.plugins.tph import *
 from PyroUbot.core.plugins.trl import *
+from PyroUbot.core.plugins.wfu import *
 from PyroUbot.core.plugins.whs import *
 from PyroUbot.core.plugins.wrt import *
 from PyroUbot.core.plugins.ytp import *
 from PyroUbot.core.plugins.zbs import *
-from PyroUbot.core.plugins.wfu import *
