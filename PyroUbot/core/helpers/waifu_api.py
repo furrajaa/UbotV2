@@ -4,7 +4,7 @@ import requests
 
 
 class Waifu:
-    def hentai():
+    def nsfw():
         url = "https://www.waifu.im/search/?included_tags=hentai"
         response = requests.get(url)
         content = response.text
