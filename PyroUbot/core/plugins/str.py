@@ -42,7 +42,7 @@ async def ping_cmd(client, message):
     await client.invoke(Ping(ping_id=0))
     end = datetime.now()
     delta_ping = (end - start).microseconds / 1000
-    if client.is_premium:
+    if client.me.is_premium:
         _ping = f"""
 <b><emoji id=5335018876839141938>✅</emoji> ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
 <b><emoji id=5971885530957222021>🔹</emoji> ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
