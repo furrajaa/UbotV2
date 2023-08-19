@@ -1,6 +1,7 @@
 from PyroUbot.core.plugins.adb import *
 from PyroUbot.core.plugins.adm import *
 from PyroUbot.core.plugins.alv import *
+from PyroUbot.core.plugins.anm import *
 from PyroUbot.core.plugins.asp import *
 from PyroUbot.core.plugins.btn import *
 from PyroUbot.core.plugins.cpy import *
@@ -42,7 +43,6 @@ from PyroUbot.core.plugins.tll import *
 from PyroUbot.core.plugins.tny import *
 from PyroUbot.core.plugins.tph import *
 from PyroUbot.core.plugins.trl import *
-from PyroUbot.core.plugins.anm import *
 from PyroUbot.core.plugins.whs import *
 from PyroUbot.core.plugins.wrt import *
 from PyroUbot.core.plugins.ytp import *
