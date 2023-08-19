@@ -7,9 +7,12 @@ from pyrogram.enums import MessagesFilter
 class API:
     async def wall(client):
         anime_channel = random.choice(["@animehikarixa", "@Anime_WallpapersHD"])
-        animenya = [anime async for anime in client.search_messages(
-            anime_channel, filter=MessagesFilter.PHOTO
-        )]
+        animenya = [
+            anime
+            async for anime in client.search_messages(
+                anime_channel, filter=MessagesFilter.PHOTO
+            )
+        ]
         return random.choice(animenya)
 
     def nsfw():
