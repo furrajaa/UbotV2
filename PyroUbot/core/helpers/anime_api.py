@@ -4,6 +4,14 @@ import requests
 
 
 class API:
+    def anime(client)
+        anime_channel = random.choice(["@animehikarixa", "@Anime_WallpapersHD"])
+        animenya = []
+        async for anime in client.search_messages(
+            anime_channel, filter=MessagesFilter.PHOTO
+        ):
+        return random.choice(animenya)
+        
     def nsfw():
         url = "https://www.waifu.im/search/?included_tags=hentai"
         response = requests.get(url)
