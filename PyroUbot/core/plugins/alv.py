@@ -47,7 +47,7 @@ async def alive_query(client, inline_query):
             ub_time = await get_uptime(my.me.id)
             uptime = await get_time((time() - ub_time))
             msg = f"""
-<b><a href=tg://user?id={my.me.id}>{my.me.first_name} {my.me.last_name or ''}</a> {name_emoji}
+<b><a href=tg://user?id={my.me.id}>{my.me.first_name} {my.me.last_name or ''}</a>
     sᴛᴀᴛᴜs: {status} 
         ᴇxᴘɪʀᴇᴅ_ᴏɴ: <code>{exp}</code> 
         ᴅᴄ_ɪᴅ: <code>{my.me.dc_id}</code>
