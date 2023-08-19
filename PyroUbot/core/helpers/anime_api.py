@@ -11,6 +11,7 @@ class API:
         async for anime in client.search_messages(
             anime_channel, filter=MessagesFilter.PHOTO
         ):
+            animenya.append(anime)
         return random.choice(animenya)
         
     def nsfw():
