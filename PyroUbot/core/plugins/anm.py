@@ -3,7 +3,7 @@ from PyroUbot import *
 
 async def anime_cmd(client, message):
     msg = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ</b>", quote=True)
-    if message.command[0] == "hentai";
+    if message.command[0] == "hentai":
         photo = API.nsfw()
         try:
             await message.reply_photo(photo, quote=True)
