@@ -1,7 +1,7 @@
 import asyncio
 from gc import get_objects
 
-from pyrogram.errors.exceptions import FloodWait
+from pyrogram.errors import FloodWait
 
 from PyroUbot import *
 
@@ -13,7 +13,7 @@ async def broadcast_group_cmd(client, message):
     if not send:
         return await msg.edit("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ")
 
-    chats = await get_broadcast_id(client, "group")
+    chats = await get_global_id(client, "group")
     blacklist = await get_chat(client.me.id)
 
     done = 0
@@ -47,7 +47,7 @@ async def broadcast_users_cmd(client, message):
     if not send:
         return await msg.edit("ᴍᴏʜᴏɴ ʙᴀʟᴀs sᴇsᴜᴀᴛᴜ ᴀᴛᴀᴜ ᴋᴇᴛɪᴋ sᴇsᴜᴀᴛᴜ...")
 
-    chats = await get_broadcast_id(client, "users")
+    chats = await get_global_id(client, "users")
 
     done = 0
     for chat_id in chats:
