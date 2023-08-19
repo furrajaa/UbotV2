@@ -1,10 +1,11 @@
 import random
+from pyrogram.enums import MessagesFilter
 
 import requests
 
 
 class API:
-    def anime(client)
+    def wall(client):
         anime_channel = random.choice(["@animehikarixa", "@Anime_WallpapersHD"])
         animenya = []
         async for anime in client.search_messages(
