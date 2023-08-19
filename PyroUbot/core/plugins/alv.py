@@ -47,7 +47,9 @@ async def alive_query(client, inline_query):
             ub_time = await get_uptime(my.me.id)
             uptime = await get_time((time() - ub_time))
             if my.me.is_premium:
-                name_emoji = f"<emoji id={my.me.emoji_status.custom_emoji_id}>⚡️</emoji>"
+                name_emoji = (
+                    f"<emoji id={my.me.emoji_status.custom_emoji_id}>⚡️</emoji>"
+                )
             else:
                 name_emoji = ""
             msg = f"""
