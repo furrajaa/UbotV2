@@ -13,7 +13,8 @@ __HELP__ = """
   <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}cowok</code>
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢɪʀɪᴍ ᴘʜᴏᴛᴏ ᴄᴏᴡᴏᴋ ʀᴀɴᴅᴏᴍ
 
-  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}anime</code>
+  <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}wall</code>
+                     <code>{0}hentai</code>
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢɪʀɪᴍ ᴘʜᴏᴛᴏ ᴀɴɪᴍᴇ ʀᴀɴᴅᴏᴍ
 """
 
@@ -31,8 +32,3 @@ async def _(client, message):
 @PY.UBOT("cowok")
 async def _(client, message):
     await photo_cowok(client, message)
-
-
-@PY.UBOT("anime")
-async def _(client, message):
-    await photo_anime(client, message)
