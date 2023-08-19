@@ -40,18 +40,12 @@ async def alive_query(client, inline_query):
                 status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[ᴀᴅᴍɪɴ]</code>"
             else:
                 status = "<b>ᴘʀᴇᴍɪᴜᴍ</b>"
-            button = Button.alive(get_id)
+            button = Button.alive(my.me.id)
             start = datetime.now()
             await my.invoke(Ping(ping_id=0))
             ping = (datetime.now() - start).microseconds / 1000
             ub_time = await get_uptime(my.me.id)
             uptime = await get_time((time() - ub_time))
-            if my.me.is_premium:
-                name_emoji = (
-                    f"<emoji id={my.me.emoji_status.custom_emoji_id}>⚡️</emoji>"
-                )
-            else:
-                name_emoji = ""
             msg = f"""
 <b><a href=tg://user?id={my.me.id}>{my.me.first_name} {my.me.last_name or ''}</a> {name_emoji}
     sᴛᴀᴛᴜs: {status} 
