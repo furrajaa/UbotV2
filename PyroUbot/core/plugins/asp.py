@@ -46,4 +46,3 @@ async def photo_cowok(client, message):
         await y.delete()
     except Exception as error:
         await y.edit(error)
-
