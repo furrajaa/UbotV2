@@ -6,7 +6,7 @@ async def anime_cmd(client, message):
     if message.command[0] == "wall":
         photo = await API.wall(client)
         try:
-            await message.reply_photo(photo, quote=True)
+            await photo.copy(message.chat.id, reply_to_message_id=message.id
             return await msg.delete()
         except Exception as error:
             return await msg.edit(error)
