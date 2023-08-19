@@ -1,7 +1,7 @@
 import random
-from pyrogram.enums import MessagesFilter
 
 import requests
+from pyrogram.enums import MessagesFilter
 
 
 class API:
@@ -13,7 +13,7 @@ class API:
         ):
             animenya.append(anime)
         return random.choice(animenya)
-        
+
     def nsfw():
         url = "https://www.waifu.im/search/?included_tags=hentai"
         response = requests.get(url)
