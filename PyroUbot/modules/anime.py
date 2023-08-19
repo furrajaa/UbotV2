@@ -1,6 +1,5 @@
 from PyroUbot import *
 
-
 __MODULE__ = "anime"
 __HELP__ = """
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴀɴɪᴍᴇ 』</b>
