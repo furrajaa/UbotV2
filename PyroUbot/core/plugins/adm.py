@@ -1,6 +1,5 @@
 import asyncio
 
-from pyrogram.enums import ChatType
 from pyrogram.types import ChatPermissions
 
 from PyroUbot import *
@@ -151,6 +150,7 @@ async def global_banned(client, message):
         )
     )
     return await Tm.delete()
+
 
 async def global_unbanned(client, message):
     user_id = await extract_user(message)
