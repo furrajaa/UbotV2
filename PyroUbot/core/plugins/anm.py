@@ -1,5 +1,6 @@
 from PyroUbot import *
 
+
 async def anime_cmd(client, message):
     msg = await message.reply("<b>ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ</b>", quote=True)
     if message.command[0] == "wall":
