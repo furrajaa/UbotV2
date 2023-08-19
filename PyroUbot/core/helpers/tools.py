@@ -24,9 +24,10 @@ def get_message(message):
     return msg
 
 
-async def get_broadcast_id(client, query):
+async def get_global_id(client, query):
     chats = []
     chat_types = {
+        "global": [ChatType.CHANNEL, ChatType.GROUP, ChatType.SUPERGROUP],
         "group": [ChatType.GROUP, ChatType.SUPERGROUP],
         "users": [ChatType.PRIVATE],
     }
