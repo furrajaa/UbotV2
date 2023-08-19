@@ -5,7 +5,7 @@ from pyrogram.enums import MessagesFilter
 
 
 class API:
-    def wall(client):
+    async def wall(client):
         anime_channel = random.choice(["@animehikarixa", "@Anime_WallpapersHD"])
         animenya = []
         async for anime in client.search_messages(
