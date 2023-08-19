@@ -12,11 +12,11 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("gban", FILTERS.ME_GROUP)
+@PY.UBOT("gban")
 async def _(client, message):
     await global_banned(client, message)
 
 
-@PY.UBOT("ungban", FILTERS.ME_GROUP)
+@PY.UBOT("ungban")
 async def _(client, message):
     await global_unbanned(client, message)
