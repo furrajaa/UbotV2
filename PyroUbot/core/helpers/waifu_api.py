@@ -3,7 +3,7 @@ import random
 import requests
 
 
-class Waifu:
+class API:
     def nsfw():
         url = "https://www.waifu.im/search/?included_tags=hentai"
         response = requests.get(url)
