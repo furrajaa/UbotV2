@@ -47,18 +47,3 @@ async def photo_cowok(client, message):
     except Exception as error:
         await y.edit(error)
 
-
-async def photo_anime(client, message):
-    y = await message.reply_text("<b>🔍 ᴍᴇɴᴄᴀʀɪ ᴀɴɪᴍᴇ...</b>")
-    anime_channel = random.choice(["@animehikarixa", "@Anime_WallpapersHD"])
-    try:
-        animenya = []
-        async for anime in client.search_messages(
-            anime_channel, filter=MessagesFilter.PHOTO
-        ):
-            animenya.append(anime)
-        photo = random.choice(animenya)
-        await photo.copy(message.chat.id, reply_to_message_id=message.id)
-        await y.delete()
-    except Exception as error:
-        await y.edit(error)
