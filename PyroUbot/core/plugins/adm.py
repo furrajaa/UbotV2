@@ -134,31 +134,23 @@ async def global_banned(client, message):
     done = 0
     failed = 0
     text = "<b>💬 ɢʟᴏʙᴀʟ {}</b>\n\n<b>✅ ʙᴇʀʜᴀsɪʟ: {} ᴄʜᴀᴛ</b>\n<b>❌ ɢᴀɢᴀʟ: {} ᴄʜᴀᴛ</b>\n<b>👤 ᴜsᴇʀ: <a href='tg://user?id={}'>{} {}</a></b>"
-    async for dialog in client.get_dialogs():
-        chat_type = dialog.chat.type
-        if chat_type in [
-            ChatType.GROUP,
-            ChatType.SUPERGROUP,
-            ChatType.CHANNEL,
-        ]:
-            chat_id = dialog.chat.id
-            if user.id == OWNER_ID:
-                return await Tm.edit("ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ɢʙᴀɴ ᴅɪᴀ ᴋᴀʀᴇɴᴀ ᴅɪᴀ ᴘᴇᴍʙᴜᴀᴛ sᴀʏᴀ")
-            elif not user.id == OWNER_ID:
-                try:
-                    await client.ban_chat_member(chat_id, user.id)
-                    done += 1
-                    await asyncio.sleep(0.1)
-                except:
-                    failed += 1
-                    await asyncio.sleep(0.1)
-    await Tm.delete()
-    return await message.reply(
+    global_id = await get_global_id(client, "global")
+    for dialog in global_id:
+        if user.id == OWNER_ID:
+            return await Tm.edit("ᴀɴᴅᴀ ᴛɪᴅᴀᴋ ʙɪsᴀ ɢʙᴀɴ ᴅɪᴀ ᴋᴀʀᴇɴᴀ ᴅɪᴀ ᴘᴇᴍʙᴜᴀᴛ sᴀʏᴀ")
+        try:
+            await client.ban_chat_member(dialog, user.id)
+            done += 1
+            await asyncio.sleep(0.1)
+        except Exception:
+            failed += 1
+            await asyncio.sleep(0.1)
+    await message.reply(
         text.format(
             "ʙᴀɴɴᴇᴅ", done, failed, user.id, user.first_name, (user.last_name or "")
         )
     )
-
+    return await Tm.delete()
 
 async def global_unbanned(client, message):
     user_id = await extract_user(message)
@@ -172,23 +164,16 @@ async def global_unbanned(client, message):
     done = 0
     failed = 0
     text = "<b>💬 ɢʟᴏʙᴀʟ {}</b>\n\n<b>✅ ʙᴇʀʜᴀsɪʟ: {} ᴄʜᴀᴛ</b>\n<b>❌ ɢᴀɢᴀʟ: {} ᴄʜᴀᴛ</b>\n<b>👤 ᴜsᴇʀ: <a href='tg://user?id={}'>{} {}</a></b>"
-    async for dialog in client.get_dialogs():
-        chat_type = dialog.chat.type
-        if chat_type in [
-            ChatType.GROUP,
-            ChatType.SUPERGROUP,
-            ChatType.CHANNEL,
-        ]:
-            chat_id = dialog.chat.id
-            try:
-                await client.unban_chat_member(chat_id, user.id)
-                done += 1
-                await asyncio.sleep(0.1)
-            except:
-                failed += 1
-                await asyncio.sleep(0.1)
-    await Tm.delete()
-    return await message.reply(
+    global_id = await get_global_id(client, "global")
+    for dialog in global_id:
+        try:
+            await client.unban_chat_member(dialog, user.id)
+            done += 1
+            await asyncio.sleep(0.1)
+        except Exception:
+            failed += 1
+            await asyncio.sleep(0.1)
+    await message.reply(
         text.format(
             "ᴜɴʙᴀɴɴᴇᴅ",
             done,
@@ -198,3 +183,4 @@ async def global_unbanned(client, message):
             (user.last_name or ""),
         )
     )
+    return await Tm.delete()
