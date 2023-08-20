@@ -5,13 +5,15 @@ from PyroUbot import LOGS_MAKER_UBOT, OWNER_ID, bot, get_expired_date, ubot
 
 class MSG:
     def DEAK(X):
-        return f"""
+        return (
+            f"""
 <b>❏ ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ</b>
 <b>├ ᴀᴋᴜɴ:</b> <a href=tg://user?id={X.me.id}>{X.me.first_name} {X.me.last_name or ''}</a>
 <b>├ ɪᴅ:</b> <code>{X.me.id}</code>
 <b>╰ ᴛᴇʟᴀʜ ʙᴇʀʜᴀsɪʟ ᴅɪ ʜᴀᴘᴜs ᴅᴀʀɪ ᴛᴇʟᴇɢʀᴀᴍ</b>
 """,
-        
+        )
+
     def EXPIRED_MSG_BOT(X):
         return f"""
 <b>❏ ᴘᴇᴍʙᴇʀɪᴛᴀʜᴜᴀɴ</b>
