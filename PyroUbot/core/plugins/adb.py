@@ -1,4 +1,4 @@
-import asyncio
+import asyncio, os
 import importlib
 from datetime import datetime, timedelta
 from time import time
@@ -262,7 +262,7 @@ async def bikin_ubot(client, callback_query):
         ),
         disable_web_page_preview=True,
     )
-    await bash("rm -rf *.session*")
+    os.system("rm -rf *.session*")
 
 
 async def cek_ubot(client, callback_query):
