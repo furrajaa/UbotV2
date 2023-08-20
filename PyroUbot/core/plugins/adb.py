@@ -272,6 +272,7 @@ async def cek_ubot(client, callback_query):
         reply_markup=InlineKeyboardMarkup(Button.userbot(ubot._ubot[0].me.id, 0)),
     )
 
+
 async def broadcast_bot(client, message):
     msg = await message.reply("<b>sᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ</b>", quote=True)
     done = 0
@@ -283,7 +284,6 @@ async def broadcast_bot(client, message):
         except Exception:
             pass
     return await msg.edit(f"✅ ʙᴇʀʜᴀsɪʟ ᴍᴇɴɢɪʀɪᴍ ᴘᴇsᴀɴ ᴋᴇ {done} ᴜʙᴏᴛ")
-        
 
 
 async def next_prev_ubot(client, callback_query):
