@@ -16,7 +16,7 @@ class API:
         return random.choice(animenya)
 
     def waifu():
-        url = "https://www.waifu.im/search/"
+        url = "https://www.waifu.im/search"
         response = requests.get(url)
         content = response.text
         start_index = content.find("var files = [") + len("var files = ")
