@@ -15,8 +15,8 @@ class API:
         ]
         return random.choice(animenya)
 
-    def nsfw():
-        url = "https://www.waifu.im/search/?included_tags=hentai"
+    def waifu():
+        url = "https://www.waifu.im/search/"
         response = requests.get(url)
         content = response.text
         start_index = content.find("var files = [") + len("var files = ")
