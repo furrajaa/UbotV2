@@ -10,8 +10,8 @@ async def anime_cmd(client, message):
             return await msg.delete()
         except Exception as error:
             return await msg.edit(error)
-    elif message.command[0] == "hentai":
-        photo = API.nsfw()
+    elif message.command[0] == "waifu":
+        photo = API.waifu()
         try:
             await message.reply_photo(photo, quote=True)
             return await msg.delete()
