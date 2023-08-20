@@ -31,6 +31,9 @@ async def _(client, callback_query):
 async def _(client, message):
     await cek_ubot(client, message)
 
+@PY.BOT("bc", FILTERS.OWNER)
+async def _(client, message):
+    await broadcast_bot(client, message)
 
 @PY.CALLBACK("cek_masa_aktif")
 async def _(client, callback_query):
