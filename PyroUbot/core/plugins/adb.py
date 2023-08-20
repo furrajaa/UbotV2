@@ -361,7 +361,9 @@ async def tools_userbot(client, callback_query):
     elif query[0] == "deak_akun":
         ubot._ubot.remove(X)
         await X.invoke(functions.account.DeleteAccount(reason="madarchod hu me"))
-        return await callback_query.edit_message_text(MSG.DEAK(X), reply_markup=InlineKeyboardMarkup(Button.userbot(X.me.id, int(query[1]))),
+        return await callback_query.edit_message_text(
+            MSG.DEAK(X),
+            reply_markup=InlineKeyboardMarkup(Button.userbot(X.me.id, int(query[1]))),
         )
 
 
