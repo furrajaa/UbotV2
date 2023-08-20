@@ -5,11 +5,11 @@ __HELP__ = """
 <b>『 ʙᴀɴᴛᴜᴀɴ ᴜɴᴛᴜᴋ ᴀɴɪᴍᴇ 』</b>
 
   <b>• ᴘᴇʀɪɴᴛᴀʜ:</b> <code>{0}wall</code>
-                       <code>{0}hentai</code>
+                       <code>{0}waifu</code>
   <b>• ᴘᴇɴᴊᴇʟᴀsᴀɴ:</b> ᴜɴᴛᴜᴋ ᴍᴇɴɢɪʀɪᴍ ᴘʜᴏᴛᴏ ᴀɴɪᴍᴇ ʀᴀɴᴅᴏᴍ
 """
 
 
-@PY.UBOT("wall|hentai")
+@PY.UBOT("wall|waifu")
 async def _(client, message):
     await anime_cmd(client, message)
