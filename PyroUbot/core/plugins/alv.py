@@ -40,7 +40,7 @@ async def alive_query(client, inline_query):
                 status = "<b>ᴘʀᴇᴍɪᴜᴍ</b> <code>[ᴀᴅᴍɪɴ]</code>"
             else:
                 status = "<b>ᴘʀᴇᴍɪᴜᴍ</b>"
-            button = Button.alive(my.me.id)
+            button = Button.alive(get_id)
             start = datetime.now()
             await my.invoke(Ping(ping_id=0))
             ping = (datetime.now() - start).microseconds / 1000
