@@ -46,12 +46,12 @@ async def ping_cmd(client, message):
         if client.me.id == 5982828110:
             _ping = f"""
 <b><emoji id=5355127939488815433>✨</emoji> ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
-<b><emoji id=5355127939488815433>🕖</emoji> ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
+<b><emoji id=6271335263629216004>🕖</emoji> ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
 """
         else:
             _ping = f"""
 <b><emoji id=4999015678238262018>✨</emoji> ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
-<b><emoji id=6271335263629216004>🕖</emoji> ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
+<b><emoji id=5017179932451668652>🕖</emoji> ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
 """
     else:
         _ping = f"""
