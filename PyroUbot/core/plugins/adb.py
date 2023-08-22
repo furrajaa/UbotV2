@@ -280,7 +280,7 @@ async def broadcast_bot(client, message):
     for x in ubot._ubot:
         try:
             await x.unblock_user(bot.me.username)
-            await message.reply_to_message(x.me.id)
+            await message.reply_to_message.forward(x.me.id)
             done += 1
         except Exception:
             pass
