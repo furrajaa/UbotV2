@@ -263,7 +263,6 @@ async def bikin_ubot(client, callback_query):
         ),
         disable_web_page_preview=True,
     )
-    os.system("rm -rf *.session*")
 
 
 async def cek_ubot(client, callback_query):
