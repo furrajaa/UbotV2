@@ -21,17 +21,17 @@ __HELP__ = """
 """
 
 
-@PY.UBOT("kick", FILTERS.ME_GROUP)
+@PY.UBOT("kick|dkick", FILTERS.ME_GROUP)
 async def _(client, message):
     await admin_kick(client, message)
 
 
-@PY.UBOT("ban", FILTERS.ME_GROUP)
+@PY.UBOT("ban|dban", FILTERS.ME_GROUP)
 async def _(client, message):
     await admin_ban(client, message)
 
 
-@PY.UBOT("mute", FILTERS.ME_GROUP)
+@PY.UBOT("mute|dmute", FILTERS.ME_GROUP)
 async def _(client, message):
     await admin_mute(client, message)
 
