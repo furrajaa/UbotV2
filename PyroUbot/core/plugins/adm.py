@@ -27,6 +27,8 @@ async def admin_kick(client, message):
     if reason:
         msg += f"\n<b>💬 ᴀʟᴀsᴀɴ:</b> {reason}"
     try:
+        if message.comnand[0] == "dkick":
+            await message.reply_to_message.delete()
         await message.chat.ban_member(user_id)
         await message.reply(msg)
         await asyncio.sleep(1)
@@ -57,6 +59,8 @@ async def admin_ban(client, message):
     if reason:
         msg += f"\n<b>💬 ᴀʟᴀsᴀɴ:</b> {reason}"
     try:
+        if message.comnand[0] == "dban":
+            await message.reply_to_message.delete()
         await message.chat.ban_member(user_id)
         await message.reply(msg)
     except Exception as error:
@@ -85,6 +89,8 @@ async def admin_mute(client, message):
     if reason:
         msg += f"\n<b>💬 ᴀʟᴀsᴀɴ:</b> {reason}"
     try:
+        if message.comnand[0] == "dmute":
+            await message.reply_to_message.delete()
         await message.chat.restrict_member(user_id, ChatPermissions())
         await message.reply(msg)
     except Exception as error:
