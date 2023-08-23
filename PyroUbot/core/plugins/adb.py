@@ -275,6 +275,8 @@ async def cek_ubot(client, callback_query):
 async def broadcast_bot(client, message):
     msg = await message.reply("<b>sᴇᴅᴀɴɢ ᴅɪᴘʀᴏsᴇs ᴛᴜɴɢɢᴜ sᴇʙᴇɴᴛᴀʀ</b>", quote=True)
     done = 0
+    if not message.reply_to_message:
+        return await msg.edit("<b>ᴍᴏʜᴏɴ ʙᴀʟᴀs ᴘᴇsᴀɴ</b>")
     for x in ubot._ubot:
         try:
             await x.unblock_user(bot.me.username)
