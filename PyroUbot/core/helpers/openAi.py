@@ -18,7 +18,7 @@ class OpenAi:
             "X-RapidAPI-Host": "chatgpt-api8.p.rapidapi.com",
         }
         response = requests.post(url, json=payload, headers=headers)
-        return response["text"].strip()
+        return response["text"]
 
     async def ImageDalle(question):
         response = await asyncio.get_event_loop().run_in_executor(
