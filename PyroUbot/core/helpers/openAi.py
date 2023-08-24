@@ -37,4 +37,4 @@ class OpenAi:
         response = await asyncio.get_event_loop().run_in_executor(
             None, lambda: openai.Audio.transcribe("whisper-1", audio_file)
         )
-        return response["text"]
+        return response.json()["text"].strip()
