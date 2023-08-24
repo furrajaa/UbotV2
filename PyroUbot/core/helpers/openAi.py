@@ -11,17 +11,12 @@ openai.api_key = OPENAI_KEY
 class OpenAi:
     async def ChatGPT(question):
         url = "https://chatgpt-api8.p.rapidapi.com/"
-        payload = [
-	{
-		"content": question,
-		"role": "user"
-	}
-]
+        payload = [{"content": question, "role": "user"}]
         headers = {
-	"content-type": "application/json",
-	"X-RapidAPI-Key": "052cc80ccbmshc1b6d8c906b8fecp18b9f5jsna896ca05cb38",
-	"X-RapidAPI-Host": "chatgpt-api8.p.rapidapi.com"
-}
+            "content-type": "application/json",
+            "X-RapidAPI-Key": "052cc80ccbmshc1b6d8c906b8fecp18b9f5jsna896ca05cb38",
+            "X-RapidAPI-Host": "chatgpt-api8.p.rapidapi.com",
+        }
         response = requests.post(url, json=payload, headers=headers)
         return response["text"].strip()
 
