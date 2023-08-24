@@ -18,7 +18,7 @@ class OpenAi:
             "X-RapidAPI-Host": "chatgpt-api8.p.rapidapi.com",
         }
         response = requests.post(url, json=payload, headers=headers)
-        return response["text"]
+        return response.json()["text"]
 
     async def ImageDalle(question):
         response = await asyncio.get_event_loop().run_in_executor(
@@ -37,4 +37,4 @@ class OpenAi:
         response = await asyncio.get_event_loop().run_in_executor(
             None, lambda: openai.Audio.transcribe("whisper-1", audio_file)
         )
-        return response.json()["text"].strip()
+        return response["text"].strip()
