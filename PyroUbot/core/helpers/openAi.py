@@ -1,7 +1,6 @@
 import asyncio
 
 import openai
-import requests
 
 from PyroUbot import OPENAI_KEY
 
@@ -10,15 +9,17 @@ openai.api_key = OPENAI_KEY
 
 class OpenAi:
     async def ChatGPT(question):
-        url = "https://chatgpt-api8.p.rapidapi.com/"
-        payload = [{"content": question, "role": "user"}]
-        headers = {
-            "content-type": "application/json",
-            "X-RapidAPI-Key": "052cc80ccbmshc1b6d8c906b8fecp18b9f5jsna896ca05cb38",
-            "X-RapidAPI-Host": "chatgpt-api8.p.rapidapi.com",
-        }
-        response = requests.post(url, json=payload, headers=headers)
-        return response.json()["text"]
+        response = await asyncio.get_event_loop().run_in_executor(
+            None,
+            lambda: openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[{"role": "user", "content": question}],
+                stop=None,
+                n=1,
+                user="arc",
+            ),
+        )
+        return response.choices[0].message["content"].strip()
 
     async def ImageDalle(question):
         response = await asyncio.get_event_loop().run_in_executor(
@@ -37,4 +38,4 @@ class OpenAi:
         response = await asyncio.get_event_loop().run_in_executor(
             None, lambda: openai.Audio.transcribe("whisper-1", audio_file)
         )
-        return response["text"].strip()
+        return response["text"]
