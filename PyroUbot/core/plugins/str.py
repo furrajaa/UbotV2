@@ -51,7 +51,7 @@ async def ping_cmd(client, message):
         else:
             _ping = f"""
 <b><emoji id=5269563867305879894>🏓</emoji> ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
-<b><emoji id=5017179932451668652>🕖</emoji> ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
+<b><emoji id=5316615057939897832>⏰</emoji> ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
 """
     else:
         _ping = f"""
