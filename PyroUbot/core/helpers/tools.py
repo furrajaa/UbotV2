@@ -19,7 +19,7 @@ def get_message(message):
         if message.reply_to_message
         else ""
         if len(message.command) < 2
-        else " ".join(message.command[1:])
+        else message.text.split(None, 1)[1]
     )
     return msg
 
