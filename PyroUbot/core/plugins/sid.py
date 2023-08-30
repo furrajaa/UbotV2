@@ -19,7 +19,7 @@ async def id_cmd(client, message):
     if len(message.command) > 1:
         try:
             user = await client.get_chat(message.text.split()[1])
-            text += f'<b><a href="tg://user?id={user.id}>ᴜsᴇʀ ɪᴅ:</a></b> <code>{user.id}</code>\n\n'
+            text += f'<b><a href=tg://user?id={user.id}>ᴜsᴇʀ ɪᴅ:</a></b> <code>{user.id}</code>\n\n'
         except:
             return await message.reply("Pengguna tidak ditemukan.")
     text += f"<b><a href=https://t.me/{message.chat.username}>ᴄʜᴀᴛ ɪᴅ:</a></b> <code>{message.chat.id}</code>\n\n"
