@@ -14,7 +14,7 @@ async def id_cmd(client, message):
         )
     text = (
         f"<b><a href={message.link}>ᴍᴇssᴀɢᴇ ɪᴅ:</a></b> <code>{message.id}</code>\n"
-        f"<b><a href=tg://user?id={message.from_user.id}>ʏᴏᴜʀ ɪᴅ:</a></b> <code>{message.from_user.id}</code>\n"
+        f"<b><a href=tg://user?id={message.from_user.id}>ʏᴏᴜʀ ɪᴅ:</a></b> <code>{message.from_user.id}</code>\n\n"
     )
     if len(message.command) > 1:
         try:
