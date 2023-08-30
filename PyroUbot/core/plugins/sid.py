@@ -19,7 +19,7 @@ async def id_cmd(client, message):
     if len(message.command) > 1:
         try:
             user = await client.get_chat(message.text.split()[1])
-            text += f'<b><a href="tg://user?id={user.id}">ᴜsᴇʀ ɪᴅ:</a></b> <code>{user.id}</code>\n\n'
+            text += f'<b><a href="tg://user?id={user.id}>ᴜsᴇʀ ɪᴅ:</a></b> <code>{user.id}</code>\n\n'
         except:
             return await message.reply("Pengguna tidak ditemukan.")
     text += f"<b><a href=https://t.me/{message.chat.username}>ᴄʜᴀᴛ ɪᴅ:</a></b> <code>{message.chat.id}</code>\n\n"
@@ -33,8 +33,8 @@ async def id_cmd(client, message):
         if file_info:
             text += f"<b><a href={message.link}>ᴍᴇᴅɪᴀ ɪᴅ:</a> <code>{file_info.file_id}</code>\n\n"
         text += (
-            f'<b><a href={message.reply_to_message.link}">ʀᴇᴘʟɪᴇᴅ ᴍᴇssᴀɢᴇ ɪᴅ:</a></b> <code>{message.reply_to_message.id}</code>\n'
-            f'<b><a href=tg://user?id={id_}">ʀᴇᴘʟɪᴇᴅ ᴜsᴇʀ ɪᴅ:</a></b> <code>{id_}</code>'
+            f'<b><a href={message.reply_to_message.link}>ʀᴇᴘʟɪᴇᴅ ᴍᴇssᴀɢᴇ ɪᴅ:</a></b> <code>{message.reply_to_message.id}</code>\n'
+            f'<b><a href=tg://user?id={id_}>ʀᴇᴘʟɪᴇᴅ ᴜsᴇʀ ɪᴅ:</a></b> <code>{id_}</code>'
         )
     return await message.reply(
         text,
