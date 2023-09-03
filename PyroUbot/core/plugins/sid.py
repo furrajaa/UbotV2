@@ -1,4 +1,3 @@
-from pyrogram.enums import ChatType
 
 from PyroUbot import *
 
