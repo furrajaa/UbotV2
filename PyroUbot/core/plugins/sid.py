@@ -4,17 +4,10 @@ from PyroUbot import *
 
 
 async def id_cmd(client, message):
-    if message.chat.type == ChatType.CHANNEL:
-        return await message.reply(
-            (
-                f"<b><a href={message.link}>ᴍᴇssᴀɢᴇ ɪᴅ:</a></b> <code>{message.id}</code>\n"
-                f"<b><a href=https://t.me/{message.chat.username}>ᴄʜᴀᴛ ɪᴅ:</a></b> <code>{message.sender_chat.id}</code>\n"
-            ),
-            disable_web_page_preview=True,
-        )
+    _id = message.from_user.id if message.from_user else message.sender_chat.id
     text = (
         f"<b><a href={message.link}>ᴍᴇssᴀɢᴇ ɪᴅ:</a></b> <code>{message.id}</code>\n"
-        f"<b><a href=tg://user?id={message.from_user.id}>ʏᴏᴜʀ ɪᴅ:</a></b> <code>{message.from_user.id}</code>\n\n"
+        f"<b><a href=tg://user?id={message.from_user.id}>ʏᴏᴜʀ ɪᴅ:</a></b> <code>{_id}</code>\n\n"
     )
     if len(message.command) > 1:
         try:
