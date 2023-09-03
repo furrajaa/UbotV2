@@ -31,7 +31,7 @@ async def id_cmd(client, message):
         )
         file_info = get_file_id(message.reply_to_message)
         if file_info:
-            text += f"<b><a href={message.link}>ᴍᴇᴅɪᴀ ɪᴅ:</a> <code>{file_info.file_id}</code>\n\n"
+            text += f"<b><a href={message.reply_to_message.link}>ᴍᴇᴅɪᴀ ɪᴅ:</a> <code>{file_info.file_id}</code>\n\n"
         text += (
             f"<b><a href={message.reply_to_message.link}>ʀᴇᴘʟɪᴇᴅ ᴍᴇssᴀɢᴇ ɪᴅ:</a></b> <code>{message.reply_to_message.id}</code>\n"
             f"<b><a href=tg://user?id={id_}>ʀᴇᴘʟɪᴇᴅ ᴜsᴇʀ ɪᴅ:</a></b> <code>{id_}</code>"
