@@ -1,4 +1,5 @@
-import asyncio, random
+import asyncio
+import random
 
 import openai
 
