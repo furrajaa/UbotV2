@@ -2,7 +2,7 @@ from PyroUbot import *
 
 
 async def id_cmd(client, message):
-    link = f"<b><a href={message.link}>ᴍᴇssᴀɢᴇ ɪᴅ:</a></b> <code>{message.id}</code>\n"
+    text = f"<b><a href={message.link}>ᴍᴇssᴀɢᴇ ɪᴅ:</a></b> <code>{message.id}</code>\n"
 
     if message.chat.type == ChatType.CHANNEL:
         text += f"<b><a href=https://t.me/{message.chat.username}>ᴄʜᴀᴛ ɪᴅ:</a></b> <code>{message.sender_chat.id}</code>\n"
