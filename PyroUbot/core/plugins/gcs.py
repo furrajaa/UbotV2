@@ -22,6 +22,7 @@ async def broadcast_group_cmd(client, message):
             continue
 
         try:
+            await asyncio.sleep(1.5)
             if message.reply_to_message:
                 await send.copy(chat_id)
             else:
@@ -55,6 +56,7 @@ async def broadcast_users_cmd(client, message):
             continue
 
         try:
+            await asyncio.sleep(1.5)
             if message.reply_to_message:
                 await send.copy(chat_id)
             else:
