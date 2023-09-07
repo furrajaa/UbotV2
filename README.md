@@ -17,7 +17,7 @@ sudo apt install screen
 ```
 
 ```
-git clone https://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@github.com/SpaceX50/SpaceUbot && cd SpaceUbot
+git clone https://git_token@github.com/SpaceX50/SpaceUbot && cd SpaceUbot
 ```
 
 ```
