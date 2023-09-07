@@ -15,8 +15,8 @@ MAX_BOT = int(os.getenv("MAX_BOT", "100"))
 RMBG_API = os.getenv("RMBG_API", "b5ZnjZ2nUUpbdEHfcrWdjWbC")
 
 OPENAI_KEY = os.getenv(
-    "OPENAI_KEY", "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"
-)
+    "OPENAI_KEY", "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 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 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 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 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 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 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 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"
+).split()
 MONGO_URL = os.getenv(
     "MONGO_URL",
     "mongodb+srv://PremUbot:sST5VL04n85JkcxS@cluster0.wixneuz.mongodb.net/?retryWrites=true&w=majority",
