@@ -1,10 +1,10 @@
-import asyncio
+import asyncio, random
 
 import openai
 
 from PyroUbot import OPENAI_KEY
 
-openai.api_key = OPENAI_KEY
+openai.api_key = random.choice(OPENAI_KEY)
 
 
 class OpenAi:
