@@ -158,10 +158,10 @@ async def tagall_cmd(client, message):
     for output in [users[i : i + 5] for i in range(0, len(users), 5)]:
         if message.chat.id not in tagallgcid:
             break
-        await asyncio.sleep(2)
         await m.reply_text(
             f"{text}\n\n{', '.join(output)}", quote=bool(message.reply_to_message)
         )
+        await asyncio.sleep(2)
     try:
         tagallgcid.remove(message.chat.id)
     except Exception:
