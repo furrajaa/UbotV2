@@ -19,7 +19,7 @@ class ConnectionHandler(logging.Handler):
 
 
 logger = logging.getLogger()
-logger.setLevel(logging.ERROR)
+logger.setLevel(logging.INFO)
 
 formatter = logging.Formatter("[%(levelname)s] - %(name)s - %(message)s", "%d-%b %H:%M")
 stream_handler = logging.StreamHandler()
