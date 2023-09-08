@@ -1,8 +1,8 @@
 import asyncio
+import random
 from random import shuffle
 
 tagallgcid = []
-import random
 
 emoji_categories = {
     'smileys': ['😀', '😃', '😄', '😁', '😆', '😅', '😂', '🤣', '😊', '😍', '🥰', '😘', '😎', '🥳', '😇', '🙃', '😋', '😛', '🤪'],
