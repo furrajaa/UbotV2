@@ -210,7 +210,7 @@ async def tagall_cmd(client, message):
         if message.chat.id not in tagallgcid:
             break
         await m.reply_text(
-            f"{text}\n\n{', '.join(output)}", quote=bool(message.reply_to_message)
+            f"{text}\n\n{' '.join(output)}", quote=bool(message.reply_to_message)
         )
         await asyncio.sleep(2)
     try:
