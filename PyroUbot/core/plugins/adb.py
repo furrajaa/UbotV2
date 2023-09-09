@@ -221,9 +221,6 @@ async def bikin_ubot(client, callback_query):
         return await bot_msg.edit(
             "<b>ʜᴀʀᴀᴘ ɢᴜɴᴀᴋᴀɴ ɴᴏᴍᴇʀ ᴛᴇʟᴇɢʀᴀᴍ ᴀɴᴅᴀ ᴅɪ ᴀᴋᴜɴ ᴀɴᴅᴀ sᴀᴀᴛ ɪɴɪ ᴅᴀɴ ʙᴜᴋᴀɴ ɴᴏᴍᴇʀ ᴛᴇʟᴇɢʀᴀᴍ ᴅᴀʀɪ ᴀᴋᴜɴ ʟᴀɪɴ</>"
         )
-    now = datetime.now(timezone("Asia/Jakarta"))
-    expire_date = now + timedelta(days=3)
-    await set_expired_date(new_client.me.id, expire_date)
     await add_ubot(
         user_id=int(new_client.me.id),
         api_id=api_id,
