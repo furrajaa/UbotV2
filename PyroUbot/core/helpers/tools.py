@@ -41,6 +41,7 @@ def generate_random_emoji():
         (0x1F980, 0x1F981),  # Simbol Benda
         (0x1F985, 0x1F991),  # Simbol Buah & Sayuran
         (0x1F992, 0x1F997),  # Simbol Makanan & Minuman
+        (0x1F9D0, 0x1F9DF),  # Simbol Kostum & Aksesori
     ]
 
     category = random.choice(categories)
