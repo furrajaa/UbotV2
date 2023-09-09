@@ -2,6 +2,7 @@ import asyncio
 import base64
 import math
 import os
+import random
 import shlex
 import textwrap
 from io import BytesIO
@@ -11,7 +12,7 @@ from PIL import Image, ImageDraw, ImageFont
 from pymediainfo import MediaInfo
 from pyrogram.enums import ChatType
 from pyrogram.errors import *
-import random
+
 
 def generate_random_emoji():
     categories = [
@@ -45,7 +46,6 @@ def generate_random_emoji():
     category = random.choice(categories)
     unique_code = random.randint(category[0], category[1])
     return chr(unique_code)
-
 
 
 def get_message(message):
