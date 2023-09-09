@@ -10,7 +10,7 @@ async def tagall_cmd(client, message):
     tagallgcid.append(message.chat.id)
     text = message.text.split(None, 1)[1] if len(message.text.split()) != 1 else ""
     users = [
-        f"<a href=tg://user?id={member.user.id}>{random_emoji()}</a>"
+        f"<a href=tg://user?id={member.user.id}>{emoji_random()}</a>"
         async for member in message.chat.get_members()
         if not (member.user.is_bot or member.user.is_deleted)
     ]
