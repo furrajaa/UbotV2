@@ -5,6 +5,7 @@ from PyroUbot import *
 
 tagallgcid = {}
 
+
 async def tagall_cmd(client, message):
     chat_id = message.chat.id
     if client.me.id in tagallgcid and chat_id in tagallgcid[client.me.id]:
@@ -35,6 +36,7 @@ async def tagall_cmd(client, message):
         tagallgcid[client.me.id].remove(chat_id)
         if not tagallgcid[client.me.id]:
             del tagallgcid[client.me.id]
+
 
 async def batal_cmd(client, message):
     chat_id = message.chat.id
