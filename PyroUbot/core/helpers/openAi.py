@@ -1,4 +1,6 @@
-import requests, json
+import json
+
+import requests
 
 from PyroUbot import OPENAI_KEY
 
