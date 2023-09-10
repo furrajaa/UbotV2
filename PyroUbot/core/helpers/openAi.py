@@ -53,7 +53,7 @@ class OpenAi:
             "model": "whisper-1",
         }
 
-        with open(audio_file, "rb") as audio:
+        with open(file, "rb") as audio:
             files = {"file": audio}
 
             response = requests.post(
