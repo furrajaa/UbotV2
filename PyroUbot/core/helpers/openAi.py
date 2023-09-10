@@ -47,7 +47,7 @@ class OpenAi:
             "Authorization": f"Bearer {OPENAI_KEY}",
         }
 
-        json_data = {
+        data = {
             "model": "whisper-1",
         }
 
@@ -55,8 +55,8 @@ class OpenAi:
             response = requests.post(
                 "https://api.openai.com/v1/audio/transcriptions",
                 headers=headers,
-                json=json_data,
-                files={"file": audio_file},
+                data=data,
+                files={"audio": (None, audio_file)},
             )
             response_data = response.json()
             return response_data
