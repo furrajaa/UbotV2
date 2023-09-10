@@ -59,4 +59,4 @@ class OpenAi:
                 files={"audio": audio_file},
             )
             response_data = response.json()
-            return response_data["text"].strip()
+            return response_data
