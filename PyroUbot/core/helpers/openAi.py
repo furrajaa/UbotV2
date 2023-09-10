@@ -1,4 +1,4 @@
-import requests
+import requests, json
 
 from PyroUbot import OPENAI_KEY
 
@@ -47,15 +47,15 @@ class OpenAi:
             "Authorization": f"Bearer {OPENAI_KEY}",
         }
 
-        params = {
+        data = {
             "model": "whisper-1",
         }
 
         with open(file, "rb") as audio_file:
             response = requests.post(
-                "https://api.openai.com/v1/audio/transcriptions",
+                "https://api.openai.com/v1/automatic-speech-recognition",
                 headers=headers,
-                params=params,
+                data=json.dumps(data),
                 files={"audio": audio_file},
             )
             response_data = response.json()
