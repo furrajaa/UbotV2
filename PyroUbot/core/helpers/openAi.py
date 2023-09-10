@@ -54,7 +54,7 @@ class OpenAi:
         }
 
         with open(audio_file, "rb") as audio:
-            files = {"file": audio}  # Ganti "audio" dengan "file" sebagai kunci
+            files = {"file": audio}
 
             response = requests.post(
                 "https://api.openai.com/v1/audio/transcriptions",
