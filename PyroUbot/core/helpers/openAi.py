@@ -20,7 +20,7 @@ class OpenAi:
             "https://api.openai.com/v1/chat/completions", headers=headers, json=data
         )
         response_data = response.json()
-        return response_data["choices"][0]["message"]["content"].strip()
+        return response_data["error"]["message"].strip()
 
     @staticmethod
     def ImageDalle(question):
