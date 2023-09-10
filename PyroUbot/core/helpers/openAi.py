@@ -47,10 +47,15 @@ class OpenAi:
             "Authorization": f"Bearer {OPENAI_KEY}",
         }
 
+        data = {
+            "model": "whisper-1",
+        }
+
         with open(file, "rb") as audio_file:
             response = requests.post(
                 "https://api.openai.com/v1/audio/transcriptions",
                 headers=headers,
+                data=data,
                 files={"audio": audio_file},
             )
             response_data = response.json()
