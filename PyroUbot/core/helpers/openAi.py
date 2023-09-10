@@ -53,10 +53,11 @@ class OpenAi:
 
         with open(file, "rb") as audio_file:
             response = requests.post(
-                "https://api.openai.com/v1/audio/transcriptions",
-                headers=headers,
-                data=data,
-                files={"audio": (None, audio_file)},
-            )
+    "https://api.openai.com/v1/audio/transcriptions",
+    headers=headers,
+    params=params,
+    files={"audio": audio_file},
+)
+
             response_data = response.json()
             return response_data
