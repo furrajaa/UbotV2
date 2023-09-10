@@ -1,41 +1,47 @@
-import asyncio
-
-import openai
-
+import requests
 from PyroUbot import OPENAI_KEY
 
-openai.api_key = OPENAI_KEY
-
-
 class OpenAi:
-    async def ChatGPT(question):
-        response = await asyncio.get_event_loop().run_in_executor(
-            None,
-            lambda: openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
-                messages=[{"role": "user", "content": question}],
-                stop=None,
-                n=1,
-                user="arc",
-            ),
-        )
-        return response.choices[0].message["content"].strip()
+    @staticmethod
+    def ChatGPT(question):
+        headers = {
+            "Authorization": f"Bearer {OPENAI_KEY}",
+            "Content-Type": "application/json",
+        }
 
-    async def ImageDalle(question):
-        response = await asyncio.get_event_loop().run_in_executor(
-            None,
-            lambda: openai.Image.create(
-                prompt=question,
-                n=1,
-                size="1024x1024",
-                user="arc",
-            ),
-        )
-        return response["data"][0]["url"]
+        data = {
+            "model": "gpt-3.5-turbo",
+            "messages": [{"role": "user", "content": question}],
+        }
 
-    async def SpeechToText(file):
-        audio_file = open(file, "rb")
-        response = await asyncio.get_event_loop().run_in_executor(
-            None, lambda: openai.Audio.transcribe("whisper-1", audio_file)
-        )
-        return response["text"]
+        response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=data)
+        response_data = response.json()
+        return response_data["choices"][0]["message"]["content"].strip()
+
+    @staticmethod
+    def ImageDalle(question):
+        headers = {
+            "Authorization": f"Bearer {OPENAI_KEY}",
+            "Content-Type": "application/json",
+        }
+
+        data = {
+            "prompt": question,
+            "n": 1,
+            "size": "1024x1024",
+        }
+
+        response = requests.post("https://api.openai.com/v1/images/generations", headers=headers, json=data)
+        response_data = response.json()
+        return response_data["data"][0]["url"]
+
+    @staticmethod
+    def SpeechToText(file):
+        headers = {
+            "Authorization": f"Bearer {OPENAI_KEY}",
+        }
+
+        with open(file, "rb") as audio_file:
+            response = requests.post("https://api.openai.com/v1/audio/transcriptions", headers=headers, files={"audio": audio_file})
+            response_data = response.json()
+            return response_data["text"]
