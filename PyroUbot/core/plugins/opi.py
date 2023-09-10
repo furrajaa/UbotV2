@@ -24,7 +24,7 @@ async def ai_cmd(client, message):
     if not args:
         return await Tm.edit(f"<b><code>{message.text}</code> [ᴘᴇʀᴛᴀɴʏᴀᴀɴ]</b>")
     try:
-        response = await OpenAi.ChatGPT(args)
+        response = OpenAi.ChatGPT(args)
         if int(len(str(response))) > 4096:
             with io.BytesIO(str.encode(str(response))) as out_file:
                 out_file.name = "openAi.txt"
@@ -48,7 +48,7 @@ async def dalle_cmd(client, message):
     if len(message.command) < 2:
         return await Tm.edit(f"<b><code>{message.text}</code> [ǫᴜᴇʀʏ]</b>")
     try:
-        response = await OpenAi.ImageDalle(message.text.split(None, 1)[1])
+        response = OpenAi.ImageDalle(message.text.split(None, 1)[1])
         msg = message.reply_to_message or message
         await client.send_photo(message.chat.id, response, reply_to_message_id=msg.id)
         return await Tm.delete()
@@ -113,7 +113,7 @@ async def stt_cmd(client, message):
             await run_cmd(cmd)
             os.remove(file)
             try:
-                response = await OpenAi.SpeechToText(audio_file)
+                response = OpenAi.SpeechToText(audio_file)
             except Exception as error:
                 await message.reply(error)
                 return await Tm.delete()
