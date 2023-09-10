@@ -47,6 +47,15 @@ def generate_random_emoji():
         (0x1F300, 0x1F320),  # Simbol Alat Musik
         (0x1F200, 0x1F251),  # Simbol Kepemimpinan & Otoritas
         (0x1F6B4, 0x1F6B6),  # Simbol Transportasi Publik
+        (0x1F30D, 0x1F30F),  # Simbol Planet
+        (0x1F31D, 0x1F31F),  # Simbol Bulan
+        (0x1F320, 0x1F32F),  # Simbol Teleskop
+        (0x1F400, 0x1F407),  # Simbol Binatang Air
+        (0x1F408, 0x1F40F),  # Simbol Binatang Tanah
+        (0x1F410, 0x1F417),  # Simbol Binatang Udara
+        (0x1F910, 0x1F918),  # Simbol Aktivitas Manusia
+        (0x1F919, 0x1F91F),  # Simbol Tangan & Jari
+        (0x1F920, 0x1F927),  # Simbol Orang
     ]
 
     category = random.choice(categories)
