@@ -1,4 +1,3 @@
-
 import requests
 
 from PyroUbot import OPENAI_KEY
