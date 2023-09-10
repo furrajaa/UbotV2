@@ -62,4 +62,4 @@ class OpenAi:
                 files=files,
             )
             response_data = response.json()
-            return response_data
+            return response_data["text"]
