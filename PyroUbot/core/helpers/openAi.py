@@ -53,12 +53,14 @@ class OpenAi:
             "model": "whisper-1",
         }
 
-        with open(file, "rb") as audio_file:
+        with open(audio_file, "rb") as audio:
+            files = {"file": audio}  # Ganti "audio" dengan "file" sebagai kunci
+
             response = requests.post(
-                "https://api.openai.com/v1/automatic-speech-recognition",
+                "https://api.openai.com/v1/audio/transcriptions",
                 headers=headers,
-                data=json.dumps(data),
-                files={"audio": audio_file},
+                data=data,
+                files=files,
             )
             response_data = response.json()
             return response_data
