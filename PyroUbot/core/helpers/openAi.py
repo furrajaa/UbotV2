@@ -1,5 +1,7 @@
 import requests
+
 from PyroUbot import OPENAI_KEY
+
 
 class OpenAi:
     @staticmethod
@@ -14,7 +16,9 @@ class OpenAi:
             "messages": [{"role": "user", "content": question}],
         }
 
-        response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=data)
+        response = requests.post(
+            "https://api.openai.com/v1/chat/completions", headers=headers, json=data
+        )
         response_data = response.json()
         return response_data["choices"][0]["message"]["content"].strip()
 
@@ -31,7 +35,9 @@ class OpenAi:
             "size": "1024x1024",
         }
 
-        response = requests.post("https://api.openai.com/v1/images/generations", headers=headers, json=data)
+        response = requests.post(
+            "https://api.openai.com/v1/images/generations", headers=headers, json=data
+        )
         response_data = response.json()
         return response_data["data"][0]["url"]
 
@@ -42,6 +48,10 @@ class OpenAi:
         }
 
         with open(file, "rb") as audio_file:
-            response = requests.post("https://api.openai.com/v1/audio/transcriptions", headers=headers, files={"audio": audio_file})
+            response = requests.post(
+                "https://api.openai.com/v1/audio/transcriptions",
+                headers=headers,
+                files={"audio": audio_file},
+            )
             response_data = response.json()
             return response_data["text"]
