@@ -20,7 +20,7 @@ class OpenAi:
             "https://api.openai.com/v1/chat/completions", headers=headers, json=data
         )
         response_data = response.json()
-        return response_data["error"]["message"].strip()
+        return response_data["choices"][0]["message"]["content"].strip()
 
     @staticmethod
     def ImageDalle(question):
@@ -59,4 +59,4 @@ class OpenAi:
                 files={"audio": audio_file},
             )
             response_data = response.json()
-            return response_data["error"]["message"].strip()
+            return response_data["text"].strip()
