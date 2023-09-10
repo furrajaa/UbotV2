@@ -48,8 +48,8 @@ class OpenAi:
         }
 
         params = {
-           "model": "whisper-1",
-       }
+            "model": "whisper-1",
+        }
 
         with open(file, "rb") as audio_file:
             response = requests.post(
