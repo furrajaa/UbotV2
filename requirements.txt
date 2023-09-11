@@ -1,5 +1,6 @@
 aiofiles
 aiohttp
+python-dotenv
 attrify
 bs4
 dnspython
