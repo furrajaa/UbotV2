@@ -17,7 +17,7 @@ sudo apt install screen
 ```
 
 ```
-git clone https://git_token@github.com/SpaceX50/SpaceUbot && cd SpaceUbot
+git clone https://git_token@github.com/XtomiX/SpaceUbot && cd SpaceUbot
 ```
 
 ### PYTHON 3.10 ⤵️
