@@ -1,5 +1,7 @@
 # Pyro-Ubot
 
+
+### UPDATE DAN UPDATE
 ```
 sudo apt-get update && sudo apt-get upgrade -y
 ```
@@ -48,7 +50,15 @@ nano .env
 
 ### VARIABEL CONFIG ⤵️
 ```
-dgg
+API_ID= 
+API_HASH=
+BOT_TOKEN=
+OWNER_ID=
+LOGS_MAKER_UBOT=
+MAX_BOT= 
+RMBG_API=
+OPENAI_KEY=
+MONGO_URL=
 ```
 
 ### JIKA SUDAH DI EDIT/PASANG KLIK ⤵️
