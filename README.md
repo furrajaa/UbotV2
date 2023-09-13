@@ -26,7 +26,7 @@ sudo apt install screen
 git clone https://git_token@github.com/XtomiX/SpaceUbot && cd SpaceUbot
 ```
 
-### INSTALL REQUIREMENTS PYTHON 3.10 ⤵️
+### INSTALL REQUIREMENTS PYTHON 3.8+ ⤵️
 ```
 pip3 install -r requirements.txt
 ```
