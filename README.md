@@ -17,6 +17,10 @@ sudo apt install screen
 ```
 
 ```
+screen -S ubot
+```
+
+```
 git clone https://git_token@github.com/XtomiX/SpaceUbot && cd SpaceUbot
 ```
 
