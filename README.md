@@ -31,8 +31,4 @@ pip3 install -r requirements.txt
 python3 -m venv env && source env/bin/ac* && pip3 install wheel && pip3 install -r req*
 ```
 
-```
-screen -S xx
-```
-
 
