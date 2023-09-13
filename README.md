@@ -20,31 +20,19 @@ sudo apt install screen
 git clone https://git_token@github.com/SpaceX50/SpaceUbot && cd SpaceUbot
 ```
 
+### PYTHON 3.10 ⤵️
 ```
-python3 -m venv env && source env/bin/ac* && pip3 install wheel && pip3 install -r req*
+pip3 install -r requirements.txt
 ```
 
+### PYTHON 3.11 ⤵️
+
 ```
-curl -fssL https://deb.nodesource.com/setup_16.x | sudo -E bash - && sudo apt-get install nodejs -y && npm i -g npm
+python3 -m venv env && source env/bin/ac* && pip3 install wheel && pip3 install -r req*
 ```
 
 ```
 screen -S xx
 ```
 
-```
-screen -X -x xxx kill
-```
-
-```
-screen -ls
-```
-
-```
-screen -r xxx
-```
-
-```
-do-release-upgrade
-```
 
