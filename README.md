@@ -1,7 +1,7 @@
 # Pyro-Ubot
 
 
-### UPDATE DAN UPDATE
+### UPDATE DAN UPDATE ⤵️
 ```
 sudo apt-get update && sudo apt-get upgrade -y
 ```
