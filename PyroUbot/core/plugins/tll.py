@@ -9,7 +9,9 @@ tagallgcid = {}
 async def tagall_cmd(client, message):
     msg = await message.reply("sɪʟᴀʜᴋᴀɴ ᴛᴜɴɢɢᴜ", quote=True)
     if client.me.id in tagallgcid and message.chat.id in tagallgcid[client.me.id]:
-        return await msg.edit("sᴇᴅᴀɴɢ ᴍᴇɴᴊᴀʟᴀɴᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ sɪʟᴀʜᴋᴀɴ ᴄᴏʙᴀ ʟᴀɢɪ ɴᴀɴᴛɪ ᴀᴛᴀᴜ ɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ <code>ʙᴀᴛᴀʟ</code>")
+        return await msg.edit(
+            "sᴇᴅᴀɴɢ ᴍᴇɴᴊᴀʟᴀɴᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ sɪʟᴀʜᴋᴀɴ ᴄᴏʙᴀ ʟᴀɢɪ ɴᴀɴᴛɪ ᴀᴛᴀᴜ ɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ <code>ʙᴀᴛᴀʟ</code>"
+        )
     if client.me.id not in tagallgcid:
         tagallgcid[client.me.id] = set()
 
@@ -39,7 +41,10 @@ async def tagall_cmd(client, message):
 
 
 async def batal_cmd(client, message):
-    if client.me.id not in tagallgcid or message.chat.id not in tagallgcid[client.me.id]:
+    if (
+        client.me.id not in tagallgcid
+        or message.chat.id not in tagallgcid[client.me.id]
+    ):
         return await message.reply(
             "sᴇᴅᴀɴɢ ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴘᴇʀɪɴᴛᴀʜ: <code>tagall</code> ʏᴀɴɢ ᴅɪɢᴜɴᴀᴋᴀɴ"
         )
