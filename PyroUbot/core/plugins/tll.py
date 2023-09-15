@@ -27,7 +27,7 @@ async def tagall_cmd(client, message):
     m = message.reply_to_message or message
     await msg.delete()
     for output in [users[i : i + 5] for i in range(0, len(users), 5)]:
-        if client.me.id not in tagallgcid or chat_id not in tagallgcid[client.me.id]:
+        if client.me.id not in tagallgcid or message.chat.id not in tagallgcid[client.me.id]:
             break
         await m.reply(
             f"{text}\n\n{' '.join(output)}", quote=bool(message.reply_to_message)
