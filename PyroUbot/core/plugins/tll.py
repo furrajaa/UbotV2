@@ -7,10 +7,9 @@ tagallgcid = {}
 
 
 async def tagall_cmd(client, message):
-    chat_id = message.chat.id
-    if client.me.id in tagallgcid and chat_id in tagallgcid[client.me.id]:
-        return
     msg = await message.reply("sɪʟᴀʜᴋᴀɴ ᴛᴜɴɢɢᴜ", quote=True)
+    if client.me.id in tagallgcid and message.chat.id in tagallgcid[client.me.id]:
+        return await msg.edit("sᴇᴅᴀɴɢ ᴍᴇɴᴊᴀʟᴀɴᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ sɪʟᴀʜᴋᴀɴ ᴄᴏʙᴀ ʟᴀɢɪ ɴᴀɴᴛɪ ᴀᴛᴀᴜ ɢᴜɴᴀᴋᴀɴ ᴘᴇʀɪɴᴛᴀʜ <code>ʙᴀᴛᴀʟ</code>")
     if client.me.id not in tagallgcid:
         tagallgcid[client.me.id] = set()
 
@@ -24,6 +23,7 @@ async def tagall_cmd(client, message):
     ]
     shuffle(users)
     m = message.reply_to_message or message
+    await msg.delete()
     for output in [users[i : i + 5] for i in range(0, len(users), 5)]:
         if client.me.id not in tagallgcid or chat_id not in tagallgcid[client.me.id]:
             break
@@ -32,20 +32,19 @@ async def tagall_cmd(client, message):
         )
         await asyncio.sleep(2)
 
-    if client.me.id in tagallgcid and chat_id in tagallgcid[client.me.id]:
-        tagallgcid[client.me.id].remove(chat_id)
+    if client.me.id in tagallgcid and message.chat.id in tagallgcid[client.me.id]:
+        tagallgcid[client.me.id].remove(message.chat.id)
         if not tagallgcid[client.me.id]:
             del tagallgcid[client.me.id]
 
 
 async def batal_cmd(client, message):
-    chat_id = message.chat.id
-    if client.me.id not in tagallgcid or chat_id not in tagallgcid[client.me.id]:
+    if client.me.id not in tagallgcid or message.chat.id not in tagallgcid[client.me.id]:
         return await message.reply(
             "sᴇᴅᴀɴɢ ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴘᴇʀɪɴᴛᴀʜ: <code>tagall</code> ʏᴀɴɢ ᴅɪɢᴜɴᴀᴋᴀɴ"
         )
 
-    tagallgcid[client.me.id].remove(chat_id)
+    tagallgcid[client.me.id].remove(message.chat.id)
     if not tagallgcid[client.me.id]:
         del tagallgcid[client.me.id]
 
