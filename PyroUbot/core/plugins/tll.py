@@ -10,7 +10,7 @@ async def tagall_cmd(client, message):
     chat_id = message.chat.id
     if client.me.id in tagallgcid and chat_id in tagallgcid[client.me.id]:
         return
-
+    msg = await message.reply("sɪʟᴀʜᴋᴀɴ ᴛᴜɴɢɢᴜ", quote=True)
     if client.me.id not in tagallgcid:
         tagallgcid[client.me.id] = set()
 
@@ -42,11 +42,11 @@ async def batal_cmd(client, message):
     chat_id = message.chat.id
     if client.me.id not in tagallgcid or chat_id not in tagallgcid[client.me.id]:
         return await message.reply(
-            "Sedang tidak ada perintah: <code>tagall</code> yang digunakan"
+            "sᴇᴅᴀɴɢ ᴛɪᴅᴀᴋ ᴀᴅᴀ ᴘᴇʀɪɴᴛᴀʜ: <code>tagall</code> ʏᴀɴɢ ᴅɪɢᴜɴᴀᴋᴀɴ"
         )
 
     tagallgcid[client.me.id].remove(chat_id)
     if not tagallgcid[client.me.id]:
         del tagallgcid[client.me.id]
 
-    await message.reply("Ok, perintah tagall berhasil dibatalkan")
+    await message.reply("ᴏᴋ, ᴘᴇʀɪɴᴛᴀʜ ᴛᴀɢᴀʟʟ ʙᴇʀʜᴀsɪʟ ᴅɪʙᴀᴛᴀʟᴋᴀɴ")
