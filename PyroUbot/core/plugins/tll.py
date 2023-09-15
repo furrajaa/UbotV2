@@ -15,7 +15,7 @@ async def tagall_cmd(client, message):
     if client.me.id not in tagallgcid:
         tagallgcid[client.me.id] = set()
 
-    tagallgcid[client.me.id].add(chat_id)
+    tagallgcid[client.me.id].add(message.chat.id)
 
     text = message.text.split(None, 1)[1] if len(message.text.split()) != 1 else ""
     users = [
