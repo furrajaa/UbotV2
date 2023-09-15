@@ -1,23 +1,23 @@
 import os
 
-from dotenv import load_dotenv
+API_ID = int(os.getenv("API_ID", "22039315"))
 
-load_dotenv(".env")
+API_HASH = os.getenv("API_HASH", "b9d878c0e74f6b2a2e2df3a1d9be968b")
 
-API_ID = int(os.getenv("API_ID"))
+BOT_TOKEN = os.getenv("BOT_TOKEN", "6207982225:AAFqWP9qDE3fmvxH21W6Ppgui8yZwTdubAk")
 
-API_HASH = os.getenv("API_HASH")
+OWNER_ID = int(os.getenv("OWNER_ID", "1964437366"))
 
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+LOGS_MAKER_UBOT = int(os.getenv("LOGS_MAKER_UBOT", "-1001969856888"))
 
-OWNER_ID = int(os.getenv("OWNER_ID"))
+MAX_BOT = int(os.getenv("MAX_BOT", "100"))
 
-LOGS_MAKER_UBOT = int(os.getenv("LOGS_MAKER_UBOT"))
+RMBG_API = os.getenv("RMBG_API", "b5ZnjZ2nUUpbdEHfcrWdjWbC")
 
-MAX_BOT = int(os.getenv("MAX_BOT"))
-
-RMBG_API = os.getenv("RMBG_API")
-
-OPENAI_KEY = os.getenv("OPENAI_KEY")
-
-MONGO_URL = os.getenv("MONGO_URL")
+OPENAI_KEY = os.getenv(
+    "OPENAI_KEY", "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"
+)
+MONGO_URL = os.getenv(
+    "MONGO_URL",
+    "mongodb+srv://PremUbot:sST5VL04n85JkcxS@cluster0.wixneuz.mongodb.net/?retryWrites=true&w=majority",
+)
