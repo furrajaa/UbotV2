@@ -45,8 +45,8 @@ async def ping_cmd(client, message):
     if client.me.is_premium:
         if client.me.id == 912184231:
             _ping = f"""
-<b><emoji id=6271335263629216004>😎</emoji> ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
-<b><emoji id=6228944490468477781>😎</emoji> ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
+<b><emoji id=6325426829079350170>😎</emoji> ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
+<b><emoji id=6057626560087722546>😎</emoji> ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
 """
         else:
             _ping = f"""
