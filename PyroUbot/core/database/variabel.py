@@ -1,4 +1,4 @@
-from PyroUbot.core.database import mongo_client
+from PyroUbot.core.database import mongodb
 
 
 varsdb = mongodb.vars
