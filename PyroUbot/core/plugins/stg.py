@@ -32,9 +32,7 @@ async def change_emot(client, message):
         await set_vars(client.me.id, query_var, valeu)
             return await msg.edit(
                 f"<b>✅ <code>{query_var}</code> ʙᴇʀʜᴀsɪʟ ᴅɪ sᴇᴛᴛɪɴɢ ᴋᴇ: <code><b><emoji id={valeu}>😎</emoji></code></b>"
-            )
-        else:
-            return await msg.edit("<b>ǫᴜᴇʀʏ ʏᴀɴɢ ᴅɪ ᴍᴀsᴜᴋᴋᴀɴ sᴀʟᴀʜ</b>")
+        )
     except Exception as error:
         await msg.edit(str(error))
 
