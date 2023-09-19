@@ -41,16 +41,14 @@ async def ping_cmd(client, message):
     await client.invoke(Ping(ping_id=0))
     end = datetime.now()
     delta_ping = (end - start).microseconds / 1000
+    emot_1 = await get_vars(client.me.id, "EMOJI_PING_PONG")
+    emot_2 = await get_vars(client.me.id, "EMOJI_UPTIME")
+    emot_pong = emot_1 if emot_1 else "5269563867305879894"
+    emot_uptime = emot_2 if emot_2 else "5316615057939897832"
     if client.me.is_premium:
-        if client.me.id == 912184231:
-            _ping = f"""
-<b><emoji id=6325426829079350170>😎</emoji> ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
-<b><emoji id=6057626560087722546>😎</emoji> ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
-"""
-        else:
-            _ping = f"""
-<b><emoji id=5269563867305879894>🏓</emoji> ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
-<b><emoji id=5316615057939897832>⏰</emoji> ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
+        _ping = f"""
+<b><emoji id={emot_pong}>🏓</emoji> ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
+<b><emoji id={emot_uptime}>⏰</emoji> ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
 """
     else:
         _ping = f"""
