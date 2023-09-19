@@ -79,7 +79,7 @@ async def handle_host(message):
 
 
 async def process_command(message, command):
-    result = (await bash(command))[0]
+    result = (await bash(message.text.split(None, 1)[1]))[0]
     if int(len(str(result))) > 4096:
         await send_large_output(message, result)
     else:
