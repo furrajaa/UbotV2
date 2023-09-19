@@ -18,7 +18,7 @@ async def setprefix(client, message):
             parsed_prefix = " ".join(f"<code>{prefix}</code>" for prefix in ub_prefix)
             return await Tm.edit(f"<b>✅ ᴘʀᴇғɪx ᴛᴇʟᴀʜ ᴅɪᴜʙᴀʜ ᴋᴇ: {parsed_prefix}</b>")
         except Exception as error:
-            return await Tm.edit(str(error)
+            return await Tm.edit(str(error))
 
 
 async def change_emot(client, message):
