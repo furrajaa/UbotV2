@@ -14,6 +14,7 @@ async def start_ubot(user_id, _ubot):
         await add_prem(user_id)
         await rm_all(user_id)
         await rem_pref(user_id)
+        await remove_all_vars(user_id)
         await rem_uptime(user_id)
         for X in await get_chat(user_id):
             await remove_chat(user_id, X)
@@ -22,6 +23,7 @@ async def start_ubot(user_id, _ubot):
     except:
         await remove_ubot(user_id)
         await rm_all(user_id)
+        await remove_all_vars(user_id)
         await rem_pref(user_id)
         await rem_uptime(user_id)
         await rem_expired_date(user_id)
