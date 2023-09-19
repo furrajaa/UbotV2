@@ -1,7 +1,7 @@
 from PyroUbot.core.database import mongodb
 
-
 varsdb = mongodb.vars
+
 
 async def set_vars(bot_id, vars_name, value):
     update_data = {"$set": {f"vars.{vars_name}": value}}
