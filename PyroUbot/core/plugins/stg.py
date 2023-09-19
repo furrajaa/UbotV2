@@ -23,7 +23,7 @@ async def setprefix(client, message):
 
 async def change_emot(client, message):
     try:
-        Tm = await message.reply("ᴍᴇᴍᴘʀᴏsᴇs...", quote=True)
+        msg = await message.reply("ᴍᴇᴍᴘʀᴏsᴇs...", quote=True)
         if len(message.command) < 3:
             return await msg.edit("<b>ᴛᴏʟᴏɴɢ ᴍᴀsᴜᴋᴋᴀɴ ǫᴜᴇʀʏ ᴅᴀɴ ᴠᴀʟᴇᴜ ɴʏᴀ</b>")
         query_mapping = {"pong": "EMOJI_PING_PONG", "uptime": "EMOJI_UPTIME"}
