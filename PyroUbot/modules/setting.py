@@ -21,6 +21,6 @@ async def _(client, message):
     await setprefix(client, message)
 
 
-@PY.UBOT("emoji")
+@PY.UBOT("setemoji")
 async def _(client, message):
     await change_emot(client, message)
