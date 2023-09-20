@@ -26,7 +26,9 @@ async def change_emot(client, message):
         msg = await message.reply("ᴍᴇᴍᴘʀᴏsᴇs...", quote=True)
 
         if not client.me.is_premium:
-            return await msg.edit("<b>ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ᴀᴋᴜɴ ᴀɴᴅᴀ ʜᴀʀᴜ ᴘʀᴇᴍɪᴜᴍ ᴛᴇʀʟᴇʙɪʜ ᴅᴀʜᴜʟᴜ</b>")
+            return await msg.edit(
+                "<b>ᴜɴᴛᴜᴋ ᴍᴇᴍʙᴜᴀᴛ ᴘᴇʀɪɴᴛᴀʜ ɪɴɪ ᴀᴋᴜɴ ᴀɴᴅᴀ ʜᴀʀᴜ ᴘʀᴇᴍɪᴜᴍ ᴛᴇʀʟᴇʙɪʜ ᴅᴀʜᴜʟᴜ</b>"
+            )
 
         if len(message.command) < 3:
             return await msg.edit("<b>ᴛᴏʟᴏɴɢ ᴍᴀsᴜᴋᴋᴀɴ ǫᴜᴇʀʏ ᴅᴀɴ ᴠᴀʟᴇᴜ ɴʏᴀ</b>")
@@ -36,11 +38,15 @@ async def change_emot(client, message):
 
         if mapping.lower() in query_mapping:
             query_var = query_mapping[mapping.lower()]
-            emoji_id = next((x.custom_emoji_id for x in message.entities if x.custom_emoji_id), None)
+            emoji_id = next(
+                (x.custom_emoji_id for x in message.entities if x.custom_emoji_id), None
+            )
 
             if emoji_id:
                 await set_vars(client.me.id, query_var, emoji_id)
-                return await msg.edit(f"<b>✅ <code>{query_var}</code> ʙᴇʀʜᴀsɪʟ ᴅɪ sᴇᴛᴛɪɴɢ ᴋᴇ:</b> <emoji id={emoji_id}>{value}</emoji>")
+                return await msg.edit(
+                    f"<b>✅ <code>{query_var}</code> ʙᴇʀʜᴀsɪʟ ᴅɪ sᴇᴛᴛɪɴɢ ᴋᴇ:</b> <emoji id={emoji_id}>{value}</emoji>"
+                )
             else:
                 return await msg.edit("<b>ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴍᴇɴᴇᴍᴜᴋᴀɴ ᴇᴍᴏᴊɪ ᴘʀᴇᴍɪᴜᴍ</b>")
 
