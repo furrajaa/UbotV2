@@ -57,4 +57,3 @@ async def change_emot(client, message):
 
     except Exception as error:
         await msg.edit(str(error))
-
