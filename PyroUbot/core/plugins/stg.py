@@ -38,9 +38,12 @@ async def change_emot(client, message):
 
         if mapping.lower() in query_mapping:
             query_var = query_mapping[mapping.lower()]
-            emoji_id = next(
-                (x.custom_emoji_id for x in message.entities if x.custom_emoji_id), None
-            )
+            emoji_id = None
+            if message.entities
+                for entity in message.entities:
+                    if entity.custom_emoji_id:
+                        emoji_id = entity.custom_emoji_id
+                        break
 
             if emoji_id:
                 await set_vars(client.me.id, query_var, emoji_id)
@@ -54,3 +57,4 @@ async def change_emot(client, message):
 
     except Exception as error:
         await msg.edit(str(error))
+
