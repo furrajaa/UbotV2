@@ -1,14 +1,16 @@
-from PyroUbot.core.helpers.anime_api import *
-from PyroUbot.core.helpers.client import *
-from PyroUbot.core.helpers.decorator import *
-from PyroUbot.core.helpers.font_tool import *
-from PyroUbot.core.helpers.get_file_id import *
-from PyroUbot.core.helpers.inline import *
-from PyroUbot.core.helpers.kang_tool import *
-from PyroUbot.core.helpers.misc import *
-from PyroUbot.core.helpers.openAi import *
-from PyroUbot.core.helpers.text import *
-from PyroUbot.core.helpers.tools import *
-from PyroUbot.core.helpers.unpack import *
-from PyroUbot.core.helpers.uptime import *
-from PyroUbot.core.helpers.yt_dl import *
+from glob import glob
+from os.path import basename, dirname, isfile
+
+def loadHelpers():
+    mod_paths = glob(f"{dirname(__file__)}/*.py")
+    return sorted(
+        [
+            basename(f)[:-3]
+            for f in mod_paths
+            if isfile(f) and f.endswith(".py") and not f.endswith("__init__.py")
+        ]
+    )
+
+for module_name in loadHelpers():
+    import_statement = f"from PyroUbot.core.helpers.{module_name} import *"
+    exec(import_statement)
