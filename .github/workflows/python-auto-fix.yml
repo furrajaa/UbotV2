@@ -8,18 +8,19 @@ jobs:
         uses: actions/checkout@v2
       - name: Setup Python
         uses: actions/setup-python@v2
+          with:
+            python-version: 3.x
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
           pip install black isort autoflake flake8
-          pip freeze > github-action.txt
       - name: Auto Fix
         run: |
           black --exclude=venv .
           isort --skip-glob='**/venv/**' .
           autoflake --in-place --recursive --remove-all-unused-imports --remove-unused-variables --ignore-init-module-imports .
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics --extend-ignore=E203,W503
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics --extend-ignore=E203,W503 --max-line-length=127
+          flake8 . --count --exit-zero --max-complexity=10 --statistics
       - name: Code Analysis
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
