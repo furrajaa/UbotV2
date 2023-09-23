@@ -26,9 +26,9 @@
             "required": true
         },
         "OWNER_ID": {
-            "description": "",
+            "description": "970109632",
             "required": false,
-            "value": "843830036"
+            "value": ""
         },
         "MONGO_URL": {
             "description": "",
