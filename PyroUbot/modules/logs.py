@@ -82,9 +82,9 @@ async def _(client, message):
 
 
 async def create_logs(client):
-    logs = await client.create_channel(f"Logs Ubot: {bot.me.username}")
+    logs = await client.create_channel(f"ᴄɪᴋʟɪᴛ ʟᴏɢs: {bot.me.username}")
     await client.set_chat_photo(
         logs.id,
-        photo="storage/Bocil_Logs.jpg",
+        photo="https://telegra.ph/file/74828c39140d25a29dbc0.jpg",
     )
     return logs.id
