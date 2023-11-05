@@ -1,3 +1,4 @@
+import wget
 from pyrogram.enums import ChatType
 
 from PyroUbot import *
@@ -82,9 +83,10 @@ async def _(client, message):
 
 
 async def create_logs(client):
+    url = wget.download("https://telegra.ph/file/74828c39140d25a29dbc0.jpg")
     logs = await client.create_channel(f"ᴄɪᴋʟɪᴛ ʟᴏɢs: {bot.me.username}")
     await client.set_chat_photo(
         logs.id,
-        photo="https://telegra.ph/file/74828c39140d25a29dbc0.jpg",
+        photo=url,
     )
     return logs.id
