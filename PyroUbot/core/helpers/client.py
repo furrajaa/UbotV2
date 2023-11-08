@@ -1,4 +1,5 @@
 from pyrogram import filters
+from pyrogram.enums import ChatType
 
 from PyroUbot import *
 
