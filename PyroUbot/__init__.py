@@ -13,10 +13,16 @@ from PyroUbot.config import *
 
 class ConnectionHandler(logging.Handler):
     def emit(self, record):
-        for X in ["OSErro", "TimeoutError"]:
-            if X in record.getMessage():
-                os.system(f"kill -9 {os.getpid()} && python3 -m PyroUbot")
-
+        for error_name in ["OSError", "TimeoutError"]:
+            if error_name in record.getMessage():
+                # Check if the message indicates device deletion
+                if "device deleted" in record.getMessage():
+                    # Perform action to restart or handle device deletion
+                    # For example, restart the process
+                    os.system("kill -9 {os.getpid()} && python3 -m PyroUbot")
+                else:
+                    # Log the error normally
+                    super().emit(record)
 
 logger = logging.getLogger()
 logger.setLevel(logging.ERROR)
@@ -29,6 +35,7 @@ connection_handler = ConnectionHandler()
 
 logger.addHandler(stream_handler)
 logger.addHandler(connection_handler)
+
 
 
 class Bot(Client):
