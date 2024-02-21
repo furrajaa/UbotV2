@@ -9,6 +9,22 @@ from pyrogram.types import (InlineKeyboardMarkup, InlineQueryResultArticle,
 from PyroUbot import *
 
 
+async def alive_cmd(client, message):
+    msg = await message.reply("<b>sɪʟᴀʜᴋᴀɴ ᴛᴜɴɢɢᴜ</b>", quote=True)
+    try:
+        x = await asyncio.wait_for(
+            client.get_inline_bot_results(
+                bot.me.username, f"alive {message.id} {client.me.id}"
+            ),
+            timeout=10  # Set timeout to 5 seconds
+        )
+        await message.reply_inline_bot_result(x.query_id, x.results[0].id, quote=True)
+        await msg.delete()
+    except asyncio.TimeoutError:
+        await msg.edit("❌ ᴡᴀᴋᴛᴜ ʜᴀʙɪs")
+    except Exception as error:
+        await msg.edit(error)
+
 async def alive_query(client, inline_query):
     get_id = inline_query.query.split()
     for my in ubot._ubot:
