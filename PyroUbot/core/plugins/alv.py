@@ -9,18 +9,6 @@ from pyrogram.types import (InlineKeyboardMarkup, InlineQueryResultArticle,
 from PyroUbot import *
 
 
-async def alive_cmd(client, message):
-    msg = await message.reply("<b>sɪʟᴀʜᴋᴀɴ ᴛᴜɴɢɢᴜ</b>", quote=True)
-    try:
-        x = await client.get_inline_bot_results(
-            bot.me.username, f"alive {message.id} {client.me.id}"
-        )
-        await message.reply_inline_bot_result(x.query_id, x.results[0].id, quote=True)
-        await msg.delete()
-    except Exception as error:
-        await msg.edit(error)
-
-
 async def alive_query(client, inline_query):
     get_id = inline_query.query.split()
     for my in ubot._ubot:
@@ -35,11 +23,11 @@ async def alive_query(client, inline_query):
             get_exp = await get_expired_date(my.me.id)
             exp = get_exp.strftime("%d-%m-%Y")
             if my.me.id == OWNER_ID:
-                status = "<b>sᴄʀᴇᴛ ᴜʙᴏᴛ</b> <code>[ꜰᴏᴜɴᴅᴇʀ]</code>"
+                status = "<b>ᴜʙᴏᴛ</b> <code>[ꜰᴏᴜɴᴅᴇʀ]</code>"
             elif my.me.id in await get_seles():
-                status = "<b>sᴄʀᴇᴛ ᴜʙᴏᴛ</b> <code>[ᴀᴅᴍɪɴ]</code>"
+                status = "<b>ᴜʙᴏᴛ</b> <code>[ᴀᴅᴍɪɴ]</code>"
             else:
-                status = "<b>sᴄʀᴇᴛ ᴜʙᴏᴛ</b>"
+                status = "<b>ᴜʙᴏᴛ</b>"
             button = Button.alive(get_id)
             start = datetime.now()
             await my.invoke(Ping(ping_id=0))
@@ -57,20 +45,21 @@ async def alive_query(client, inline_query):
         ᴘᴇᴇʀ_ɢʀᴏᴜᴘ: <code>{group} ɢʀᴏᴜᴘ</code>
         sᴛᴀʀᴛ_ᴜᴘᴛɪᴍᴇ: <code>{uptime}</code></b>
 """
-            await client.answer_inline_query(
-                inline_query.id,
-                cache_time=300,
-                results=[
-                    (
-                        InlineQueryResultArticle(
-                            title="💬",
-                            reply_markup=InlineKeyboardMarkup(button),
-                            input_message_content=InputTextMessageContent(msg),
+            asyncio.ensure_future(
+                client.answer_inline_query(
+                    inline_query.id,
+                    cache_time=300,
+                    results=[
+                        (
+                            InlineQueryResultArticle(
+                                title="💬",
+                                reply_markup=InlineKeyboardMarkup(button),
+                                input_message_content=InputTextMessageContent(msg),
+                            )
                         )
-                    )
-                ],
+                    ],
+                )
             )
-
 
 async def alive_close(client, callback_query):
     get_id = callback_query.data.split()
