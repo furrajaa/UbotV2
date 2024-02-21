@@ -8,7 +8,7 @@ class FILTERS:
     ME = filters.me
     GROUP = filters.group
     PRIVATE = filters.private
-    OWNER = filters.user([5876222922, OWNER_ID])
+    OWNER = filters.user([843830036, OWNER_ID])
     ME_GROUP = filters.me & filters.group
     ME_OWNER = filters.me & filters.user(OWNER_ID)
 
@@ -23,7 +23,7 @@ class PY:
                 & filters.incoming
             )
 
-            @ubot.on_message(afk_check, group=7)
+            @ubot.on_message(afk_check, group=10)
             async def wrapped_func(client, message):
                 await func(client, message)
 
