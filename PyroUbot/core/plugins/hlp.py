@@ -26,27 +26,8 @@ async def help_cmd(client, message):
             )
         else:
             await message.reply(
-                f"<b>❌ ᴛɪᴅᴀᴋ ᴅᴀᴘᴀᴛ ᴅɪᴛᴇᴍᴜᴋᴀɴ ᴍᴏᴅᴜʟᴇ ᴅᴇɴɢᴀɴ ɴᴀᴍᴀ <code>{module}</code></b>"
+                f"<b>❌ ᴛɪᴅᴀᴋ ᴅɪᴛᴇᴍᴜᴋᴀɴ ᴍᴏᴅᴜʟᴇ ᴅᴇɴɢᴀɴ ɴᴀᴍᴀ <code>{module}</code></b>"
             )
-
-
-async def menu_inline(client, inline_query):
-    msg = f"<b>✣ ᴍᴇɴᴜ ɪɴʟɪɴᴇ <a href=tg://user?id={inline_query.from_user.id}>{inline_query.from_user.first_name} {inline_query.from_user.last_name or ''}</a>\n\n★ ᴛᴏᴛᴀʟ ᴍᴏᴅᴜʟᴇs: {len(HELP_COMMANDS)}</b>"
-    await client.answer_inline_query(
-        inline_query.id,
-        cache_time=60,
-        results=[
-            (
-                InlineQueryResultArticle(
-                    title="Help Menu!",
-                    reply_markup=InlineKeyboardMarkup(
-                        paginate_modules(0, HELP_COMMANDS, "help")
-                    ),
-                    input_message_content=InputTextMessageContent(msg),
-                )
-            )
-        ],
-    )
 
 
 async def menu_callback(client, callback_query):
@@ -68,31 +49,44 @@ async def menu_callback(client, callback_query):
         )
     if prev_match:
         curr_page = int(prev_match.group(1))
-        asyncio.ensure_future(
-            callback_query.edit_message_text(
-                text=top_text,
-                reply_markup=InlineKeyboardMarkup(
-                    paginate_modules(curr_page - 1, HELP_COMMANDS, "help")
-                ),
-            )
+        await callback_query.edit_message_text(
+            text=top_text,
+            reply_markup=InlineKeyboardMarkup(
+                paginate_modules(curr_page - 1, HELP_COMMANDS, "help")
+            ),
         )
     if next_match:
         next_page = int(next_match.group(1))
-        asyncio.ensure_future(
-            callback_query.edit_message_text(
-                text=top_text,
-                reply_markup=InlineKeyboardMarkup(
-                    paginate_modules(next_page + 1, HELP_COMMANDS, "help")
-                ),
-            )
+        await callback_query.edit_message_text(
+            text=top_text,
+            reply_markup=InlineKeyboardMarkup(
+                paginate_modules(next_page + 1, HELP_COMMANDS, "help")
+            ),
         )
     if back_match:
-        asyncio.ensure_future(
-            callback_query.edit_message_text(
-                text=top_text,
-                reply_markup=InlineKeyboardMarkup(
-                    paginate_modules(0, HELP_COMMANDS, "help")
-                ),
-                disable_web_page_preview=True,
+        await callback_query.edit_message_text(
+            text=top_text,
+            reply_markup=InlineKeyboardMarkup(
+                paginate_modules(0, HELP_COMMANDS, "help")
+            ),
+            disable_web_page_preview=True,
+        )
+
+
+async def menu_inline(client, inline_query):
+    msg = f"<b>✣ ᴍᴇɴᴜ ɪɴʟɪɴᴇ <a href=tg://user?id={inline_query.from_user.id}>{inline_query.from_user.first_name} {inline_query.from_user.last_name or ''}</a>\n\n★ ᴛᴏᴛᴀʟ ᴍᴏᴅᴜʟᴇs: {len(HELP_COMMANDS)}</b>"
+    await client.answer_inline_query(
+        inline_query.id,
+        cache_time=60,
+        results=[
+            (
+                InlineQueryResultArticle(
+                    title="Help Menu!",
+                    reply_markup=InlineKeyboardMarkup(
+                        paginate_modules(0, HELP_COMMANDS, "help")
+                    ),
+                    input_message_content=InputTextMessageContent(msg),
+                )
             )
+        ],
         )
