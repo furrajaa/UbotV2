@@ -10,7 +10,6 @@ from PyroUbot import *
 
 
 async def alive_cmd(client, message):
-    msg = await message.reply
     try:
         x = await asyncio.wait_for(
             client.get_inline_bot_results(
