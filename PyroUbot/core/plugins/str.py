@@ -34,6 +34,39 @@ async def send_msg_to_owner(client, message):
         )
 
 
+async def ping_cmd(client, message):
+    uptime = await get_time((time() - start_time))
+    start = datetime.now()
+
+    ping_task = client.invoke(Ping(ping_id=0))
+    emot_1_task = get_vars(client.me.id, "EMOJI_PING_PONG")
+    emot_2_task = get_vars(client.me.id, "EMOJI_UPTIME")
+    emot_3_task = get_vars(client.me.id, "EMOJI_MENTION")
+
+    ping_result, emot_1, emot_2, emot_3 = await asyncio.gather(ping_task, emot_1_task, emot_2_task, emot_3_task)
+
+    end = datetime.now()
+    delta_ping = (end - start).microseconds / 1000
+
+    emot_pong = emot_1 if emot_1 else "5269563867305879894"
+    emot_uptime = emot_2 if emot_2 else "5316615057939897832"
+    emot_mention = emot_3 if emot_3 else "6226371543065167427"
+
+    if client.me.is_premium:
+        _ping = f"""
+<b><emoji id={emot_pong}>🏓</emoji> ᴘᴏɴɢ:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
+<b><emoji id={emot_uptime}>⏰</emoji> ᴜᴘᴛɪᴍᴇ:</b> <code>{uptime}</code>
+<b><emoji id={emot_mention}>👑</emoji> ᴍᴇɴᴛɪᴏɴ:</b> <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a>
+        """
+    else:
+        _ping = f""" 
+<b>❏ 𝟻+:</b> <code>{str(delta_ping).replace('.', ',')} ms</code>
+<b>├ ᴛɪᴍᴇ:</b> <code>{uptime}</code>
+<b>╰ ᴊᴇɴᴇɴɢ:</b> <a href=tg://user?id={client.me.id}>{client.me.first_name} {client.me.last_name or ''}</a>
+        """
+    await message.reply(_ping)
+
+
 async def start_cmd(client, message):
     await send_msg_to_owner(client, message)
     if len(message.command) < 2:
