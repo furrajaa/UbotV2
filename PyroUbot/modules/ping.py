@@ -1,7 +1,6 @@
 import datetime
 from pyrogram import Client
 from time import time
-from get_uptime import get_uptime
 
 from PyroUbot import *
 
