@@ -14,8 +14,8 @@
         },
         "BLACKLIST_CHAT": {
             "description": "",
-            "required": false,
-            "value": "-1001473548283"
+            "required": true,
+            "value": "-1001704645461"
         },
         "API_HASH": {
             "description": "",
