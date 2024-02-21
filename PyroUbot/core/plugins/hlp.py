@@ -1,4 +1,5 @@
 import re
+import asyncio
 
 from pyrogram.types import *
 
@@ -54,6 +55,7 @@ async def menu_callback(client, callback_query):
     next_match = re.match(r"help_next\((.+?)\)", callback_query.data)
     back_match = re.match(r"help_back", callback_query.data)
     top_text = f"<b>✣ ᴍᴇɴᴜ ɪɴʟɪɴᴇ <a href=tg://user?id={callback_query.from_user.id}>{callback_query.from_user.first_name} {callback_query.from_user.last_name or ''}</a>\n\n► ᴛᴏᴛᴀʟ ᴍᴏᴅᴜʟᴇs: {len(HELP_COMMANDS)}</b>"
+    
     if mod_match:
         module = (mod_match.group(1)).replace(" ", "_")
         prefix = await ubot.get_prefix(callback_query.from_user.id)
@@ -66,25 +68,31 @@ async def menu_callback(client, callback_query):
         )
     if prev_match:
         curr_page = int(prev_match.group(1))
-        await callback_query.edit_message_text(
-            text=top_text,
-            reply_markup=InlineKeyboardMarkup(
-                paginate_modules(curr_page - 1, HELP_COMMANDS, "help")
-            ),
+        asyncio.ensure_future(
+            callback_query.edit_message_text(
+                text=top_text,
+                reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(curr_page - 1, HELP_COMMANDS, "help")
+                ),
+            )
         )
     if next_match:
         next_page = int(next_match.group(1))
-        await callback_query.edit_message_text(
-            text=top_text,
-            reply_markup=InlineKeyboardMarkup(
-                paginate_modules(next_page + 1, HELP_COMMANDS, "help")
-            ),
+        asyncio.ensure_future(
+            callback_query.edit_message_text(
+                text=top_text,
+                reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(next_page + 1, HELP_COMMANDS, "help")
+                ),
+            )
         )
     if back_match:
-        await callback_query.edit_message_text(
-            text=top_text,
-            reply_markup=InlineKeyboardMarkup(
-                paginate_modules(0, HELP_COMMANDS, "help")
-            ),
-            disable_web_page_preview=True,
-    )
+        asyncio.ensure_future(
+            callback_query.edit_message_text(
+                text=top_text,
+                reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(0, HELP_COMMANDS, "help")
+                ),
+                disable_web_page_preview=True,
+            )
+        )
