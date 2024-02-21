@@ -2,7 +2,7 @@ import datetime
 from pyrogram import Client
 from time import time
 
-from PyroUbot import *
+from .. import *
 
 
 async def ping_cmd(client, message):
