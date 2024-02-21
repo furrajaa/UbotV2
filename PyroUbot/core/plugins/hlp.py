@@ -20,7 +20,7 @@ async def help_cmd(client, message):
                 HELP_COMMANDS[get_arg(message)].__HELP__.format(
                     next((p) for p in prefix)
                 )
-                + "\n<b>© sᴇᴄʀᴇᴛxʏᴢ</b>",
+                + "\n<b>Xnxx</b>",
                 quote=True,
             )
         else:
@@ -60,20 +60,22 @@ async def menu_callback(client, callback_query):
         text = HELP_COMMANDS[module].__HELP__.format(next((p) for p in prefix))
         button = [[InlineKeyboardButton("• ᴋᴇᴍʙᴀʟɪ •", callback_data="help_back")]]
         await callback_query.edit_message_text(
-            text=text + "\n<b>© sᴇᴄʀᴇᴛxʏᴢ</b>",
+            text=text + "\n<b>Xnxx</b>",
             reply_markup=InlineKeyboardMarkup(button),
             disable_web_page_preview=True,
         )
     if prev_match:
         curr_page = int(prev_match.group(1))
-        await callback_query.edit_message_reply_markup(
+        await callback_query.edit_message_text(
+            text=top_text,
             reply_markup=InlineKeyboardMarkup(
                 paginate_modules(curr_page - 1, HELP_COMMANDS, "help")
             ),
         )
     if next_match:
         next_page = int(next_match.group(1))
-        await callback_query.edit_message_reply_markup(
+        await callback_query.edit_message_text(
+            text=top_text,
             reply_markup=InlineKeyboardMarkup(
                 paginate_modules(next_page + 1, HELP_COMMANDS, "help")
             ),
@@ -85,4 +87,4 @@ async def menu_callback(client, callback_query):
                 paginate_modules(0, HELP_COMMANDS, "help")
             ),
             disable_web_page_preview=True,
-        )
+    )
