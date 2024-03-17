@@ -83,8 +83,8 @@ async def _(client, message):
 
 
 async def create_logs(client):
-    url = wget.download("https://telegra.ph/file/74828c39140d25a29dbc0.jpg")
-    logs = await client.create_channel(f"ᴄɪᴋʟɪᴛ ʟᴏɢs: {bot.me.username}")
+    url = wget.download("https://telegra.ph//file/dd1fcdc6ce130507e266b.jpg")
+    logs = await client.create_channel(f"beelzebub logs: {bot.me.username}")
     await client.set_chat_photo(
         logs.id,
         photo=url,
